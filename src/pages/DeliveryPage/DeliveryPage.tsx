@@ -5,7 +5,7 @@ import Nav from '../../components/nav/Nav';
 import AddressBox from '../../components/main/AddresBox/AddressBox';
 import Banner from '../../components/main/Banner/Banner';
 import Carousel from '../../components/Carousel/Carousel';
-import Recommend from '../../components/main/Recommend/Recommend';
+import RecommendMenu from '../../components/main/RecommendMenu/RecommendMenu';
 
 const headerLeftData: HeaderItem[] = [
   {
@@ -82,12 +82,13 @@ const DeleveryPage = () => {
       <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
       <div>
         <AddressBox />
+
         <Carousel items={items} itemWidth={360}>
           <Banner items={items} itemWidth={360} />
         </Carousel>
 
-        <Carousel items={items} itemWidth={120} itemGap={10}>
-          <Recommend items={items} itemWidth={120} itemGap={10} />
+        <Carousel items={items} itemWidth={100} itemGap={16}>
+          <RecommendMenu items={items} itemWidth={100} itemGap={16} />
         </Carousel>
 
         <div></div>
