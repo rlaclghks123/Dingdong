@@ -28,7 +28,7 @@ export const Main = css`
   flex-direction: column;
   width: 100%;
   margin-top: 60px;
-  padding-top: 8px;
+  padding-top: 16px;
   box-sizing: border-box;
 `;
 

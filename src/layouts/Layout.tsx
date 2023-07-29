@@ -1,11 +1,11 @@
-import { Children, FC } from 'react';
+import { Children } from 'react';
 import { Wrapper, LayoutBox, Header, Main, Nav } from './Layout.styles';
 
 interface LayoutProps {
   children?: React.ReactNode;
 }
 
-const Layout: FC<LayoutProps> = ({ children: childrenProp }) => {
+const Layout = ({ children: childrenProp }: LayoutProps) => {
   const [header, main, nav] = Children.toArray(childrenProp);
   return (
     <div css={Wrapper}>
