@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect, ReactElement } from 'react';
 import { Item } from '../../pages/MainPage/HomePage';
-import { useNavigate } from 'react-router-dom';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -13,6 +12,17 @@ interface CarouselProps {
 
 interface IIsmobile {
   $ismobile: boolean;
+}
+
+interface ExtendedHTMLDivElement extends HTMLDivElement {
+  startPosition: number;
+}
+
+export interface CarouselChildProps {
+  items: Item[];
+  itemWidth: number;
+  itemGap?: number;
+  carouselItemsRef?: React.RefObject<ExtendedHTMLDivElement>;
 }
 
 const Wrapper = styled.div<IIsmobile>`
@@ -31,12 +41,11 @@ const Wrapper = styled.div<IIsmobile>`
 `;
 
 const Carousel = ({ items, itemWidth = 150, itemGap = 0, children }: CarouselProps) => {
-  const carouselItemsRef = useRef<HTMLDivElement>(null);
+  const carouselItemsRef = useRef<ExtendedHTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
   const [endPosition, setEndPosition] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const navigate = useNavigate();
 
   const moveTowardX = (movedDistance: number) => {
     const totalCarouselWidth = itemWidth * items.length + itemGap * (items.length - 1);
@@ -51,6 +60,7 @@ const Carousel = ({ items, itemWidth = 150, itemGap = 0, children }: CarouselPro
     event.preventDefault();
     setStartPosition(event.clientX);
     setIsDragging(true);
+    if (carouselItemsRef.current) carouselItemsRef.current.startPosition = event.clientX;
   };
 
   const handleMouseMove = (event: MouseEvent) => {
@@ -85,13 +95,9 @@ const Carousel = ({ items, itemWidth = 150, itemGap = 0, children }: CarouselPro
     isMobile ? setIsMobile(true) : setIsMobile(false);
   }, []);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (Math.floor(startPosition) === e.clientX) navigate(items[Number(e.currentTarget.dataset.id)].link);
-  };
-
   return (
     <Wrapper $ismobile={isMobile}>
-      <div ref={isMobile === true ? null : carouselItemsRef}>{React.cloneElement(children, { handleClick })}</div>
+      <div ref={isMobile === true ? null : carouselItemsRef}>{React.cloneElement(children, { carouselItemsRef })}</div>
     </Wrapper>
   );
 };

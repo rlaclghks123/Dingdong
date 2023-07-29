@@ -1,15 +1,18 @@
 import React from 'react';
-import { Item } from '../../../pages/MainPage/HomePage';
+
 import { Wrapper, ItemBox, ItemContents, ItemStoreName, Img, ItemStoreNameTitle, StarStyle } from './ProductCard.style';
+import { useNavigate } from 'react-router-dom';
+import { CarouselChildProps } from '../../Carousel/Carousel';
 
-interface ProductCardProps {
-  items: Item[];
-  itemWidth: number;
-  itemGap?: number;
-  handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
+const ProductCard = ({ items, itemWidth, itemGap = 0, carouselItemsRef }: CarouselChildProps) => {
+  const navigate = useNavigate();
 
-const ProductCard = ({ items, itemWidth, itemGap = 0, handleClick }: ProductCardProps) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (carouselItemsRef?.current?.startPosition === e.clientX) {
+      navigate(items[Number(e.currentTarget.dataset.id)].link || '');
+    }
+  };
+
   return (
     <Wrapper itemGap={itemGap}>
       {items.map((item, index) => (

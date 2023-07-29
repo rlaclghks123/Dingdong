@@ -1,14 +1,8 @@
 import { css } from '@emotion/react';
-import { Item } from '../../../pages/MainPage/HomePage';
 import styled from '@emotion/styled';
 import commonStyle from '../../../styles/common';
-
-interface RecommendMenuProps {
-  items: Item[];
-  itemWidth: number;
-  itemGap: number;
-  handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
+import { useNavigate } from 'react-router-dom';
+import { CarouselChildProps } from '../ProductCard/ProductCard';
 
 interface WrapperProps {
   itemGap: number;
@@ -48,12 +42,20 @@ const TitleBox = css`
   font-size: 12px;
 `;
 
-const RecommendMenu = ({ items, itemWidth, itemGap, handleClick }: RecommendMenuProps) => {
+const RecommendMenu = ({ items, itemWidth, itemGap = 16, carouselItemsRef }: CarouselChildProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (carouselItemsRef?.current.startPosition === e.clientX) {
+      navigate(items[Number(e.currentTarget.dataset.id)].link || '');
+    }
+  };
+
   return (
     <Wrapper itemGap={itemGap}>
       {items.map((item, index) => (
         <div key={index}>
-          <Button css={Button} url={item.img} width={itemWidth} onClick={handleClick} data-id={index}>
+          <Button css={Button} url={item.img || ''} width={itemWidth} onClick={handleClick} data-id={index}>
             <p css={TitleBox}>{item.title}</p>
           </Button>
         </div>

@@ -7,9 +7,9 @@ import Layout from '../../layouts/Layout';
 import { ReactNode } from 'react';
 
 export interface Item {
-  link: string;
-  img: string;
   title: string;
+  link?: string;
+  img?: string;
   deliveryTime?: string;
   deliveryTip?: number;
   star?: number;

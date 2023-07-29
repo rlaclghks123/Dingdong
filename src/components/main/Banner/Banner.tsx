@@ -1,12 +1,7 @@
 import { css } from '@emotion/react';
-import { Item } from '../../../pages/MainPage/HomePage';
 import styled from '@emotion/styled';
-
-interface BannerProps {
-  items: Item[];
-  itemWidth: number;
-  handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
+import { CarouselChildProps } from '../ProductCard/ProductCard';
+import { useNavigate } from 'react-router-dom';
 
 interface ImgProps {
   width: number;
@@ -37,7 +32,15 @@ const TitleBox = css`
   color: white;
 `;
 
-const Banner = ({ items, itemWidth, handleClick }: BannerProps) => {
+const Banner = ({ items, itemWidth, carouselItemsRef }: CarouselChildProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (carouselItemsRef?.current.startPosition === e.clientX) {
+      navigate(items[Number(e.currentTarget.dataset.id)].link || '');
+    }
+  };
+
   return (
     <div css={Wrapper}>
       {items.map((item, index) => (
