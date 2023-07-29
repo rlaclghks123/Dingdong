@@ -1,8 +1,9 @@
 import { css } from '@emotion/react';
-import commonStyle from '../../../styles/common';
+import theme from '../../../styles/theme';
 
 const Wrapper = css`
-  padding: ${commonStyle.boxSidePadding};
+  background-color: ${theme.grey100};
+  padding: 0px 16px 16px 16px;
 `;
 
 const AddressBox = () => {

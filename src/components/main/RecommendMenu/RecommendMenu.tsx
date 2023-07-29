@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { Item } from '../../../pages/MainPage/HomePage';
 import styled from '@emotion/styled';
+import commonStyle from '../../../styles/common';
 
 interface RecommendMenuProps {
   items: Item[];
@@ -19,7 +20,8 @@ interface ButtonProps {
 }
 
 const Wrapper = styled.div<WrapperProps>`
-  padding-left: 16px;
+  padding: ${commonStyle.boxSidePadding};
+  margin: ${commonStyle.boxUpAndDownMargin};
   gap: ${({ itemGap }) => (itemGap ? `${itemGap}px` : '0px')};
   display: flex;
   position: relative;

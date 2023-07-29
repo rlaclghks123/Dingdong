@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import { Item } from '../../../pages/MainPage/HomePage';
 import styled from '@emotion/styled';
-import commonStyle from '../../../styles/common';
 
 interface BannerProps {
   items: Item[];
@@ -14,10 +13,10 @@ interface ImgProps {
 }
 
 const Wrapper = css`
-  background-color: white;
   display: flex;
   position: relative;
-  margin: ${commonStyle.boxUpAndDownMargin};
+
+  background-color: white;
 `;
 
 const Img = styled.img<ImgProps>`
@@ -27,10 +26,14 @@ const Img = styled.img<ImgProps>`
 
 const TitleBox = css`
   position: absolute;
+
   width: 100%;
   height: 100%;
+
   padding: 16px;
+
   text-align: left;
+
   color: white;
 `;
 
