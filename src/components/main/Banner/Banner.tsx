@@ -21,7 +21,6 @@ const Img = styled.img<ImgProps>`
 
 const TitleBox = css`
   position: absolute;
-
   width: 100%;
   height: 100%;
 
@@ -45,7 +44,7 @@ const Banner = ({ items, itemWidth, carouselItemsRef }: CarouselChildProps) => {
     <div css={Wrapper}>
       {items.map((item, index) => (
         <button key={index} onClick={handleClick} data-id={index}>
-          <Img css={Img} width={itemWidth} src={item.img} alt={`${item.title} 사진`} />
+          <Img width={itemWidth} src={item.img} alt={`${item.title} 사진`} />
           <p css={TitleBox}>{item.title}</p>
         </button>
       ))}

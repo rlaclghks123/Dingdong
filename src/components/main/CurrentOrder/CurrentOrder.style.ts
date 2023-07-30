@@ -4,17 +4,17 @@ import commonStyle from '../../../styles/common';
 import { css } from '@emotion/react';
 
 export const Wrapper = css`
-  padding: 16px 8px;
+  padding: 8px;
 
   background-color: ${theme.white};
-  margin: ${commonStyle.boxSideMargin};
+  margin: ${commonStyle.boxFullMargin};
 `;
 
 export const Header = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0px;
+  margin: 8px 0px;
 
   a {
     color: black;

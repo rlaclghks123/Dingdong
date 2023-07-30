@@ -1,6 +1,6 @@
 import Layout from '../../layouts/Layout';
 import MainHeader from '../../components/header/MainHeader/MainHeader';
-import { HeaderItem, Item } from '../MainPage/HomePage';
+import { HeaderItem, Item, mainItems } from '../MainPage/HomePage';
 import Nav from '../../components/nav/Nav';
 import AddressBox from '../../components/main/AddresBox/AddressBox';
 import Banner from '../../components/main/Banner/Banner';
@@ -12,6 +12,7 @@ import SortTag from '../../components/main/SortTag/SortTag';
 import commonStyle from '../../styles/common';
 import { useState } from 'react';
 import SortModal from '../../components/Modal/SortModal';
+import ProductCard from '../../components/main/ProductCard/ProductCard';
 
 const headerLeftData: HeaderItem[] = [
   {
@@ -296,7 +297,17 @@ const sortList: Item[] = [
 const DeleveryPage = () => {
   const [isClicked, setIsClicked] = useState(false);
   return (
-    <>
+    <div
+      css={
+        isClicked &&
+        css`
+          position: fixed;
+          left: 0px;
+          right: 0px;
+          transform: translate(50% 0%);
+        `
+      }
+    >
       <Layout>
         <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
         <div>
@@ -328,12 +339,20 @@ const DeleveryPage = () => {
             <Carousel items={sortList} itemWidth={70} itemGap={8}>
               <SortTag items={sortList} itemWidth={70} itemGap={8} setIsClicked={setIsClicked} />
             </Carousel>
+
+            <div
+              css={css`
+                margin: ${commonStyle.boxFullMargin};
+              `}
+            >
+              <ProductCard items={mainItems} itemWidth={332} itemGap={20} direction="column" boxShadow={true} />
+            </div>
           </div>
         </div>
         <Nav />
       </Layout>
       {isClicked && <SortModal sortList={sortList} setIsClicked={setIsClicked} />}
-    </>
+    </div>
   );
 };
 export default DeleveryPage;

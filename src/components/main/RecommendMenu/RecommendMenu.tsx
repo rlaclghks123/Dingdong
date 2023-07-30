@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import commonStyle from '../../../styles/common';
 import { useNavigate } from 'react-router-dom';
-import { CarouselChildProps } from '../ProductCard/ProductCard';
+import { CarouselChildProps } from '../../Carousel/Carousel';
 
 interface WrapperProps {
   itemGap: number;
@@ -14,11 +14,12 @@ interface ButtonProps {
 }
 
 const Wrapper = styled.div<WrapperProps>`
+  display: flex;
+
   padding: ${commonStyle.boxSidePadding};
   margin: ${commonStyle.boxUpAndDownMargin};
+
   gap: ${({ itemGap }) => (itemGap ? `${itemGap}px` : '0px')};
-  display: flex;
-  position: relative;
 `;
 
 const Button = styled.button<ButtonProps>`
@@ -26,8 +27,6 @@ const Button = styled.button<ButtonProps>`
   height: 100px;
 
   background-image: url(${props => props.url});
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: 100% 100%;
 
   border-radius: 16px;
@@ -46,7 +45,7 @@ const RecommendMenu = ({ items, itemWidth, itemGap = 16, carouselItemsRef }: Car
   const navigate = useNavigate();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (carouselItemsRef?.current.startPosition === e.clientX) {
+    if (carouselItemsRef?.current?.startPosition === e.clientX) {
       navigate(items[Number(e.currentTarget.dataset.id)].link || '');
     }
   };

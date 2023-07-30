@@ -10,7 +10,7 @@ interface SortModalProps {
 const ModalDarkBgWrapper = css`
   position: absolute;
   width: 100%;
-  height: 1200px;
+  height: 100vh;
   top: 0px;
 
   background-color: black;
@@ -24,11 +24,12 @@ const ModalContentsBox = css`
   position: fixed;
   left: 50%;
   right: 50%;
-  bottom: 0px;
   transform: translate(-50%, 0%);
+  bottom: 0px;
 
   width: ${commonStyle.maxWidth};
   height: 70%;
+
   background-color: white;
   border-radius: 8px;
 `;
@@ -52,7 +53,6 @@ const CloseBtn = css`
   justify-content: center;
   align-items: center;
 
-  width: 100%;
   height: 10%;
 
   border-top: 1px solid rgba(0, 0, 0, 0.1);

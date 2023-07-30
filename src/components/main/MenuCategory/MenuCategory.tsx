@@ -47,12 +47,10 @@ const EmptyItems = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   margin-bottom: 8px;
 `;
 
 const Dot = css`
-  position: absolute;
   width: 2px;
   height: 2px;
   border-radius: 50%;

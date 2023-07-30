@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { CarouselChildProps } from '../../Carousel/Carousel';
 import theme from '../../../styles/theme';
@@ -19,8 +18,6 @@ const Wrapper = styled.div<WrapperProps>`
   display: flex;
   gap: ${({ itemGap }) => (itemGap ? `${itemGap}px` : '0px')};
 `;
-
-const TagBox = css``;
 
 const Button = styled.button<ButtonProps>`
   border-radius: 8px;
@@ -44,17 +41,15 @@ const SortTag = ({ items, itemWidth, itemGap = 16, setIsClicked, carouselItemsRe
   };
 
   return (
-    <>
-      <Wrapper itemGap={itemGap}>
-        {items.map((item, index) => (
-          <div css={TagBox} key={index}>
-            <Button width={itemWidth} data-id={index} onClick={handleClick}>
-              <p>{item.title}</p>
-            </Button>
-          </div>
-        ))}
-      </Wrapper>
-    </>
+    <Wrapper itemGap={itemGap}>
+      {items.map((item, index) => (
+        <div key={index}>
+          <Button width={itemWidth} data-id={index} onClick={handleClick}>
+            <p>{item.title}</p>
+          </Button>
+        </div>
+      ))}
+    </Wrapper>
   );
 };
 
