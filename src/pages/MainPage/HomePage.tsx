@@ -78,7 +78,7 @@ const category = [
   },
 ];
 
-const items: Item[] = [
+export const mainItems: Item[] = [
   {
     link: '/1',
     img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQyfHwlRUMlOUQlOEMlRUMlOEIlOUR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
@@ -136,7 +136,7 @@ const MainPage = () => {
       <div>
         <SearchBar />
         <CategoryList category={category} />
-        <CurrentOrder items={items} />
+        <CurrentOrder items={mainItems} />
       </div>
 
       <Nav />
