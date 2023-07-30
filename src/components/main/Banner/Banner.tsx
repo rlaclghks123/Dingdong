@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { CarouselChildProps } from '../ProductCard/ProductCard';
 import { useNavigate } from 'react-router-dom';
+import { CarouselChildProps } from '../../Carousel/Carousel';
 
 interface ImgProps {
   width: number;
@@ -36,7 +36,7 @@ const Banner = ({ items, itemWidth, carouselItemsRef }: CarouselChildProps) => {
   const navigate = useNavigate();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (carouselItemsRef?.current.startPosition === e.clientX) {
+    if (carouselItemsRef?.current?.startPosition === e.clientX) {
       navigate(items[Number(e.currentTarget.dataset.id)].link || '');
     }
   };

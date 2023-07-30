@@ -8,6 +8,9 @@ import Carousel from '../../components/Carousel/Carousel';
 import MenuCategory from '../../components/main/MenuCategory/MenuCategory';
 import RecommendMenu from '../../components/main/RecommendMenu/RecommendMenu';
 import { css } from '@emotion/react';
+import SortTag from '../../components/main/SortTag/SortTag';
+import commonStyle from '../../styles/common';
+import { useState } from 'react';
 
 const headerLeftData: HeaderItem[] = [
   {
@@ -279,31 +282,56 @@ const menuItems = [
   },
 ];
 
+const sortList: Item[] = [
+  { title: '기본순' },
+  { title: '배달팁' },
+  { title: '이름순' },
+  { title: '별점순' },
+  { title: '이름순' },
+  { title: '테스트' },
+  { title: '테스트' },
+];
+
 const DeleveryPage = () => {
+  const [isClicked, setIsClicked] = useState(false);
   return (
-    <Layout>
-      <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
-      <div>
-        <AddressBox />
+    <>
+      <Layout>
+        <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
+        <div>
+          <AddressBox />
 
-        <Carousel items={items} itemWidth={360}>
-          <Banner items={items} itemWidth={360} />
-        </Carousel>
-
-        <div
-          css={css`
-            background-color: white;
-          `}
-        >
-          <Carousel items={items} itemWidth={100} itemGap={16}>
-            <RecommendMenu items={items} itemWidth={100} itemGap={16} />
+          <Carousel items={items} itemWidth={360}>
+            <Banner items={items} itemWidth={360} />
           </Carousel>
 
-          <MenuCategory menuItems={menuItems} />
+          <div
+            css={css`
+              background-color: white;
+            `}
+          >
+            <Carousel items={items} itemWidth={100} itemGap={16}>
+              <RecommendMenu items={items} itemWidth={100} itemGap={16} />
+            </Carousel>
+
+            <MenuCategory menuItems={menuItems} />
+          </div>
+
+          <div
+            css={css`
+              background-color: white;
+              margin-top: 16px;
+              padding: ${commonStyle.boxUpAndDownPadding};
+            `}
+          >
+            <Carousel items={sortList} itemWidth={70} itemGap={8}>
+              <SortTag items={sortList} itemWidth={70} itemGap={8} setIsClicked={setIsClicked} />
+            </Carousel>
+          </div>
         </div>
-      </div>
-      <Nav />
-    </Layout>
+        <Nav />
+      </Layout>
+    </>
   );
 };
 export default DeleveryPage;
