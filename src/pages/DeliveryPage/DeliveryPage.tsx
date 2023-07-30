@@ -11,6 +11,7 @@ import { css } from '@emotion/react';
 import SortTag from '../../components/main/SortTag/SortTag';
 import commonStyle from '../../styles/common';
 import { useState } from 'react';
+import SortModal from '../../components/Modal/SortModal';
 
 const headerLeftData: HeaderItem[] = [
   {
@@ -331,6 +332,7 @@ const DeleveryPage = () => {
         </div>
         <Nav />
       </Layout>
+      {isClicked && <SortModal sortList={sortList} setIsClicked={setIsClicked} />}
     </>
   );
 };
