@@ -1,18 +1,18 @@
+import { css } from '@emotion/react';
+import { useState } from 'react';
+
 import Layout from '../../layouts/Layout';
-import MainHeader from '../../components/header/MainHeader/MainHeader';
 import { HeaderItem, Item, mainItems } from '../MainPage/HomePage';
-import Nav from '../../components/nav/Nav';
+import MainHeader from '../../components/header/MainHeader/MainHeader';
 import AddressBox from '../../components/main/AddresBox/AddressBox';
 import Banner from '../../components/main/Banner/Banner';
-import Carousel from '../../components/Carousel/Carousel';
 import MenuCategory from '../../components/main/MenuCategory/MenuCategory';
 import RecommendMenu from '../../components/main/RecommendMenu/RecommendMenu';
-import { css } from '@emotion/react';
-import SortTag from '../../components/main/SortTag/SortTag';
-import commonStyle from '../../styles/common';
-import { useState } from 'react';
-import SortModal from '../../components/Modal/SortModal';
 import ProductCard from '../../components/main/ProductCard/ProductCard';
+import Nav from '../../components/nav/Nav';
+import SortTag from '../../components/main/SortTag/SortTag';
+import SortModal from '../../components/Modal/SortModal';
+import commonStyle from '../../styles/common';
 
 const headerLeftData: HeaderItem[] = [
   {
@@ -312,19 +312,14 @@ const DeleveryPage = () => {
         <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
         <div>
           <AddressBox />
-
-          <Carousel items={items} itemWidth={360}>
-            <Banner items={items} itemWidth={360} />
-          </Carousel>
+          <Banner items={items} itemWidth={360} />
 
           <div
             css={css`
               background-color: white;
             `}
           >
-            <Carousel items={items} itemWidth={100} itemGap={16}>
-              <RecommendMenu items={items} itemWidth={100} itemGap={16} />
-            </Carousel>
+            <RecommendMenu items={items} itemWidth={100} itemGap={16} />
 
             <MenuCategory menuItems={menuItems} />
           </div>
@@ -336,9 +331,7 @@ const DeleveryPage = () => {
               padding: ${commonStyle.boxUpAndDownPadding};
             `}
           >
-            <Carousel items={sortList} itemWidth={70} itemGap={8}>
-              <SortTag items={sortList} itemWidth={70} itemGap={8} setIsClicked={setIsClicked} />
-            </Carousel>
+            <SortTag items={sortList} itemWidth={70} itemGap={8} setIsClicked={setIsClicked} />
 
             <div
               css={css`

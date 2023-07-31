@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import commonStyle from '../../../styles/common';
 import { useNavigate } from 'react-router-dom';
 import { CarouselChildProps } from '../../Carousel/Carousel';
+import UseDrag from '../../../hooks/UseDrag';
+import { DragContainer } from '../CurrentOrder/CurrentOrder';
 
 interface WrapperProps {
   itemGap: number;
@@ -41,8 +43,9 @@ const TitleBox = css`
   font-size: 12px;
 `;
 
-const RecommendMenu = ({ items, itemWidth, itemGap = 16, carouselItemsRef }: CarouselChildProps) => {
+const RecommendMenu = ({ items, itemWidth, itemGap = 16 }: CarouselChildProps) => {
   const navigate = useNavigate();
+  const { carouselItemsRef, isMobile } = UseDrag({ items, itemWidth, itemGap });
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (carouselItemsRef?.current?.startPosition === e.clientX) {
@@ -51,15 +54,19 @@ const RecommendMenu = ({ items, itemWidth, itemGap = 16, carouselItemsRef }: Car
   };
 
   return (
-    <Wrapper itemGap={itemGap}>
-      {items.map((item, index) => (
-        <div key={index}>
-          <Button css={Button} url={item.img || ''} width={itemWidth} onClick={handleClick} data-id={index}>
-            <p css={TitleBox}>{item.title}</p>
-          </Button>
-        </div>
-      ))}
-    </Wrapper>
+    <DragContainer $ismobile={isMobile}>
+      <div ref={carouselItemsRef}>
+        <Wrapper itemGap={itemGap}>
+          {items.map((item, index) => (
+            <div key={index}>
+              <Button css={Button} url={item.img || ''} width={itemWidth} onClick={handleClick} data-id={index}>
+                <p css={TitleBox}>{item.title}</p>
+              </Button>
+            </div>
+          ))}
+        </Wrapper>
+      </div>
+    </DragContainer>
   );
 };
 

@@ -1,7 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
-import { CarouselChildProps } from '../../Carousel/Carousel';
+import UseDrag, { CarouselChildProps } from '../../../hooks/UseDrag';
+import { DragContainer } from '../CurrentOrder/CurrentOrder';
 
 interface ImgProps {
   width: number;
@@ -31,8 +32,11 @@ const TitleBox = css`
   color: white;
 `;
 
-const Banner = ({ items, itemWidth, carouselItemsRef }: CarouselChildProps) => {
+const Banner = ({ items, itemWidth }: CarouselChildProps) => {
   const navigate = useNavigate();
+  const autoPlay = true;
+  const autoPlayDuration = 3000;
+  const { carouselItemsRef, isDragging, isMobile } = UseDrag({ items, itemWidth, autoPlay, autoPlayDuration });
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (carouselItemsRef?.current?.startPosition === e.clientX) {
@@ -41,14 +45,26 @@ const Banner = ({ items, itemWidth, carouselItemsRef }: CarouselChildProps) => {
   };
 
   return (
-    <div css={Wrapper}>
-      {items.map((item, index) => (
-        <button key={index} onClick={handleClick} data-id={index}>
-          <Img width={itemWidth} src={item.img} alt={`${item.title} 사진`} />
-          <p css={TitleBox}>{item.title}</p>
-        </button>
-      ))}
-    </div>
+    <DragContainer $ismobile={isMobile}>
+      <div
+        ref={carouselItemsRef}
+        css={
+          !isDragging &&
+          css`
+            transition: transform 0.5s ease-in-out;
+          `
+        }
+      >
+        <div css={Wrapper}>
+          {items.map((item, index) => (
+            <button key={index} onClick={handleClick} data-id={index}>
+              <Img width={itemWidth} src={item.img} alt={`${item.title} 사진`} />
+              <p css={TitleBox}>{item.title}</p>
+            </button>
+          ))}
+        </div>
+      </div>
+    </DragContainer>
   );
 };
 

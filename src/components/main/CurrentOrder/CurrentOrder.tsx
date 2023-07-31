@@ -1,14 +1,40 @@
 import { Link } from 'react-router-dom';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+
 import { Item } from '../../../pages/MainPage/HomePage';
 import { Wrapper, Header, TooltipBox } from './CurrentOrder.style';
-import Carousel from '../../Carousel/Carousel';
 import ProductCard from '../ProductCard/ProductCard';
+import UseDrag from '../../../hooks/UseDrag';
 
 interface CurrentOrderProps {
   items: Item[];
 }
 
+export interface IIsmobile {
+  $ismobile: boolean;
+}
+
+export const DragContainer = styled.div<IIsmobile>`
+  overflow: hidden;
+
+  ${({ $ismobile }) =>
+    $ismobile &&
+    css`
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    `}
+`;
+
 const CurrentOrder = ({ items }: CurrentOrderProps) => {
+  const itemWidth = 120;
+  const itemGap = 16;
+
+  const { carouselItemsRef, isMobile } = UseDrag({ items, itemWidth, itemGap });
   return (
     <section css={Wrapper}>
       <div css={Header}>
@@ -24,9 +50,12 @@ const CurrentOrder = ({ items }: CurrentOrderProps) => {
         </div>
         <Link to="/">주문내역 보기 ＞ </Link>
       </div>
-      <Carousel items={items} itemWidth={120} itemGap={16}>
-        <ProductCard items={items} itemWidth={120} itemGap={16} />
-      </Carousel>
+
+      <DragContainer $ismobile={isMobile}>
+        <div ref={carouselItemsRef}>
+          <ProductCard items={items} itemWidth={itemWidth} itemGap={itemGap} carouselItemsRef={carouselItemsRef} />
+        </div>
+      </DragContainer>
     </section>
   );
 };
