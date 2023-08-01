@@ -33,10 +33,10 @@ const Button = styled.button<ButtonProps>`
 `;
 
 const SortTag = ({ items, itemWidth, setIsClicked, itemGap = 16 }: SortTagProps) => {
-  const { carouselItemsRef, isMobile } = UseDrag({ items, itemWidth, itemGap });
+  const { carouselItemsRef, isMobile, startPosition } = UseDrag({ items, itemWidth, itemGap });
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (carouselItemsRef?.current?.startPosition === e.clientX) {
+    if (startPosition === e.clientX) {
       const id = Number(e.currentTarget.dataset.id);
       if (id === 0) setIsClicked(true);
       console.log(id);

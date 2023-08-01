@@ -2,8 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import commonStyle from '../../../styles/common';
 import { useNavigate } from 'react-router-dom';
-import { CarouselChildProps } from '../../Carousel/Carousel';
-import UseDrag from '../../../hooks/UseDrag';
+import UseDrag, { CarouselChildProps } from '../../../hooks/UseDrag';
 import { DragContainer } from '../CurrentOrder/CurrentOrder';
 
 interface WrapperProps {
@@ -45,10 +44,10 @@ const TitleBox = css`
 
 const RecommendMenu = ({ items, itemWidth, itemGap = 16 }: CarouselChildProps) => {
   const navigate = useNavigate();
-  const { carouselItemsRef, isMobile } = UseDrag({ items, itemWidth, itemGap });
+  const { carouselItemsRef, isMobile, startPosition } = UseDrag({ items, itemWidth, itemGap });
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (carouselItemsRef?.current?.startPosition === e.clientX) {
+    if (startPosition === e.clientX) {
       navigate(items[Number(e.currentTarget.dataset.id)].link || '');
     }
   };

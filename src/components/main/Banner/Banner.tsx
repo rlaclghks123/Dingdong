@@ -36,10 +36,15 @@ const Banner = ({ items, itemWidth }: CarouselChildProps) => {
   const navigate = useNavigate();
   const autoPlay = true;
   const autoPlayDuration = 3000;
-  const { carouselItemsRef, isDragging, isMobile } = UseDrag({ items, itemWidth, autoPlay, autoPlayDuration });
+  const { carouselItemsRef, isDragging, isMobile, startPosition, endPosition } = UseDrag({
+    items,
+    itemWidth,
+    autoPlay,
+    autoPlayDuration,
+  });
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (carouselItemsRef?.current?.startPosition === e.clientX) {
+    if (startPosition === e.clientX) {
       navigate(items[Number(e.currentTarget.dataset.id)].link || '');
     }
   };

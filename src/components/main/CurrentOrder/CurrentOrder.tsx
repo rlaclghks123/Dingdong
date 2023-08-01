@@ -15,6 +15,10 @@ export interface IIsmobile {
   $ismobile: boolean;
 }
 
+interface DragRefBoxProps {
+  itemGap: number;
+}
+
 export const DragContainer = styled.div<IIsmobile>`
   overflow: hidden;
 
@@ -30,11 +34,16 @@ export const DragContainer = styled.div<IIsmobile>`
     `}
 `;
 
+export const DragRefRownBox = styled.div<DragRefBoxProps>`
+  display: flex;
+  gap: ${({ itemGap }) => (itemGap ? `${itemGap}px` : '0px')};
+`;
+
 const CurrentOrder = ({ items }: CurrentOrderProps) => {
   const itemWidth = 120;
   const itemGap = 16;
 
-  const { carouselItemsRef, isMobile } = UseDrag({ items, itemWidth, itemGap });
+  const { carouselItemsRef, isMobile, startPosition } = UseDrag({ items, itemWidth, itemGap });
   return (
     <section css={Wrapper}>
       <div css={Header}>
@@ -52,9 +61,15 @@ const CurrentOrder = ({ items }: CurrentOrderProps) => {
       </div>
 
       <DragContainer $ismobile={isMobile}>
-        <div ref={carouselItemsRef}>
-          <ProductCard items={items} itemWidth={itemWidth} itemGap={itemGap} carouselItemsRef={carouselItemsRef} />
-        </div>
+        <DragRefRownBox ref={carouselItemsRef} itemGap={itemGap}>
+          <ProductCard
+            items={items}
+            itemWidth={itemWidth}
+            itemGap={itemGap}
+            carouselItemsRef={carouselItemsRef}
+            startPosition={startPosition}
+          />
+        </DragRefRownBox>
       </DragContainer>
     </section>
   );

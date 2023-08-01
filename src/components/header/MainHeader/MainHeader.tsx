@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { ReactNode } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Wrapper, Box, Layout } from './MainHeader.styles';

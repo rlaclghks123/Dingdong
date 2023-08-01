@@ -9,19 +9,15 @@ interface CarouselProps {
   autoPlayDuration?: number;
 }
 
-interface ExtendedHTMLDivElement extends HTMLDivElement {
-  startPosition: number;
-}
-
 export interface CarouselChildProps {
   items: Item[];
   itemWidth: number;
   itemGap?: number;
-  carouselItemsRef?: React.RefObject<ExtendedHTMLDivElement>;
+  carouselItemsRef?: React.RefObject<HTMLDivElement>;
 }
 
 const UseDrag = ({ items, itemWidth, itemGap = 0, autoPlay = false, autoPlayDuration = 3000 }: CarouselProps) => {
-  const carouselItemsRef = useRef<ExtendedHTMLDivElement>(null);
+  const carouselItemsRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
   const [endPosition, setEndPosition] = useState(0);
@@ -40,7 +36,6 @@ const UseDrag = ({ items, itemWidth, itemGap = 0, autoPlay = false, autoPlayDura
     event.preventDefault();
     setStartPosition(event.clientX);
     setIsDragging(true);
-    if (carouselItemsRef.current) carouselItemsRef.current.startPosition = event.clientX;
   };
 
   const handleMouseMove = (event: MouseEvent) => {
@@ -88,7 +83,7 @@ const UseDrag = ({ items, itemWidth, itemGap = 0, autoPlay = false, autoPlayDura
     return () => clearInterval(interval);
   }, [isDragging, endPosition]);
 
-  return { carouselItemsRef, isDragging, isMobile };
+  return { carouselItemsRef, isDragging, isMobile, startPosition, endPosition };
 };
 
 export default UseDrag;
