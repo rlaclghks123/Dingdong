@@ -1,8 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
+
 import UseDrag, { CarouselChildProps } from '../../../hooks/UseDrag';
 import { DragContainer } from '../CurrentOrder/CurrentOrder';
+import theme from '../../../styles/theme';
 
 interface ImgProps {
   width: number;
@@ -11,7 +13,6 @@ interface ImgProps {
 const Wrapper = css`
   display: flex;
   position: relative;
-
   background-color: white;
 `;
 
@@ -30,6 +31,17 @@ const TitleBox = css`
   text-align: left;
 
   color: white;
+`;
+
+const SlideIndicator = css`
+  position: absolute;
+  border-radius: 16px;
+  bottom: 8px;
+  right: 8px;
+  font-size: 8px;
+  padding: 4px 16px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: ${theme.grey100};
 `;
 
 const Banner = ({ items, itemWidth }: CarouselChildProps) => {
@@ -69,6 +81,7 @@ const Banner = ({ items, itemWidth }: CarouselChildProps) => {
           ))}
         </div>
       </div>
+      <div css={SlideIndicator}>{`${Math.floor(-endPosition / itemWidth) + 1} / ${items.length}`}</div>
     </DragContainer>
   );
 };

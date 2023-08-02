@@ -72,7 +72,7 @@ const UseDrag = ({ items, itemWidth, itemGap = 0, autoPlay = false, autoPlayDura
   const autoScroll = () => {
     if (!isDragging) {
       const movedDistance = moveTowardX(endPosition - itemWidth - itemGap);
-      movedDistance === minPosition ? setEndPosition(maxPosition) : setEndPosition(movedDistance);
+      setEndPosition(movedDistance);
       if (carouselItemsRef.current) carouselItemsRef.current.style.transform = `translateX(${movedDistance}px)`;
     }
   };
