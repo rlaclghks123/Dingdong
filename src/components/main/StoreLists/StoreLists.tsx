@@ -1,9 +1,10 @@
 import { css } from '@emotion/react';
+import { useState } from 'react';
+
 import StoreListsItem from '../../common/StoreListsItem/StoreListsItem';
 import commonStyle from '../../../styles/common';
-import { mainItems } from '../../../pages/MainPage/HomePage';
+import { mainItems } from '../../../pages/HomePage/HomePage';
 import { itemWidthObj } from '../../constants/itemConstatns';
-import { useState } from 'react';
 
 const Wrapper = css`
   margin: ${commonStyle.boxFullMargin};

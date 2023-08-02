@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Layout from '../../layouts/Layout';
-import { HeaderItem, Item } from '../MainPage/HomePage';
+import { HeaderItem, Item } from '../HomePage/HomePage.tsx';
 import MainHeader from '../../components/header/MainHeader/MainHeader';
 import AddressBox from '../../components/main/AddresBox/AddressBox';
 import Banner from '../../components/main/Banner/Banner';

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import StoreListsItem from '../../common/StoreListsItem/StoreListsItem';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
 
-import { mainItems } from '../../../pages/MainPage/HomePage';
+import { mainItems } from '../../../pages/HomePage/HomePage';
 import { Wrapper, Header, TooltipBox } from './CurrentOrder.style';
 import UseDrag from '../../../hooks/UseDrag';
 import { storeListSizes } from '../StoreLists/StoreLists';

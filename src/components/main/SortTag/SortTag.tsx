@@ -1,31 +1,14 @@
-import styled from '@emotion/styled';
-import theme from '../../../styles/theme';
+import { useState } from 'react';
+
 import UseDrag from '../../../hooks/UseDrag';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
 import { sortList } from '../../../pages/DeliveryPage/DeliveryPage';
 import { itemGapObj, itemWidthObj } from '../../constants/itemConstatns';
-import { useState } from 'react';
+import { Wrapper, Button, Title } from './SortTag.style';
 
 interface SortTagProps {
   setIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
-
-const Wrapper = styled.div<{ itemGap: number }>`
-  display: flex;
-  gap: ${({ itemGap }) => (itemGap ? `${itemGap}px` : '0px')};
-`;
-
-const Button = styled.button<{ width: number }>`
-  border-radius: 8px;
-  width: ${({ width }) => (width ? `${width}px` : '120px')};
-
-  p {
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 16px;
-    background-color: ${theme.grey100};
-  }
-`;
 
 const SortTag = ({ setIsClicked }: SortTagProps) => {
   const [itemLists, setItemLists] = useState(sortList);
@@ -50,7 +33,7 @@ const SortTag = ({ setIsClicked }: SortTagProps) => {
         {itemLists.map((item, index) => (
           <div key={index}>
             <Button width={itemWidthObj.sortTag} data-id={index} onClick={handleClick}>
-              <p>{item.title}</p>
+              <span css={Title}>{item.title}</span>
             </Button>
           </div>
         ))}

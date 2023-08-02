@@ -1,34 +1,11 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import UseDrag from '../../../hooks/UseDrag';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
 import { itemWidthObj } from '../../constants/itemConstatns';
 import { itemList } from '../../../pages/DeliveryPage/DeliveryPage';
-import { useState } from 'react';
-
-const DragItemWrapper = css`
-  display: flex;
-  position: relative;
-`;
-
-const Img = styled.img<{ width: number }>`
-  width: ${({ width }) => (width ? `${width}px` : '360px')};
-  height: 150px;
-`;
-
-const TitleBox = css`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  padding: 16px;
-
-  text-align: left;
-
-  color: white;
-`;
+import { DragItemWrapper, Img, TitleBox } from './Banner.style';
 
 const Banner = () => {
   const navigate = useNavigate();
@@ -58,7 +35,7 @@ const Banner = () => {
         {itemLists.map((item, index) => (
           <button key={index} onClick={handleClick} data-id={index}>
             <Img width={itemWidthObj.banner} src={item.img} alt={`${item.title} 사진`} />
-            <p css={TitleBox}>{item.title}</p>
+            <span css={TitleBox}>{item.title}</span>
           </button>
         ))}
       </div>

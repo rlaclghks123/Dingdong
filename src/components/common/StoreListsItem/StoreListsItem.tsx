@@ -10,7 +10,7 @@ import {
   StarStyle,
   ItemContentsDeliveryBox,
 } from './StoreListsItem.style';
-import { Item } from '../../../pages/MainPage/HomePage';
+import { Item } from '../../../pages/HomePage/HomePage';
 
 interface StoreListsItemdProps {
   items: Item[];

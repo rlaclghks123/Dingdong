@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { Item } from '../pages/MainPage/HomePage';
+import { Item } from '../pages/HomePage/HomePage';
 
 interface CarouselProps {
   items: Item[];
