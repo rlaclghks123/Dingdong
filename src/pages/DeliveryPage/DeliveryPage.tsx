@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
 import Layout from '../../layouts/Layout';
 import { HeaderItem, Item } from '../MainPage/HomePage';
@@ -13,7 +11,7 @@ import SortTag from '../../components/main/SortTag/SortTag';
 import StoreLists from '../../components/main/StoreLists/StoreLists';
 import Nav from '../../components/nav/Nav';
 import SortModal from '../../components/Modal/SortModal';
-import commonStyle from '../../styles/common';
+import { Wrapper, WhiteBox, SortContainer } from './DeliveryPage.style.ts';
 
 const headerLeftData: HeaderItem[] = [
   {
@@ -294,27 +292,6 @@ export const sortList: Item[] = [
   { title: '테스트' },
   { title: '테스트' },
 ];
-
-export const Wrapper = styled.div<{ isClicked: boolean }>`
-  ${({ isClicked }) =>
-    isClicked &&
-    css`
-      position: fixed;
-      left: 0px;
-      right: 0px;
-      transform: translate(50% 0%);
-    `}
-`;
-
-export const WhiteBox = css`
-  background-color: white;
-`;
-
-export const SortContainer = css`
-  background-color: white;
-  margin-top: 16px;
-  padding: ${commonStyle.boxUpAndDownPadding};
-`;
 
 const DeleveryPage = () => {
   const [isClicked, setIsClicked] = useState(false);
