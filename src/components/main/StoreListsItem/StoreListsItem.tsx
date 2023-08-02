@@ -10,10 +10,9 @@ import {
   StarStyle,
   ItemContentsDeliveryBox,
 } from './StoreListsItem.style';
-import { CarouselChildProps } from '../../../hooks/UseDrag';
 import { Item } from '../../../pages/MainPage/HomePage';
 
-interface StoreListsItemdProps extends CarouselChildProps {
+interface StoreListsItemdProps {
   items: Item[];
   itemWidth: number;
   size: string;

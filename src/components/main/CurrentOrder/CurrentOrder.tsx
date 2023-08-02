@@ -1,50 +1,29 @@
 import { Link } from 'react-router-dom';
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { Item } from '../../../pages/MainPage/HomePage';
+import { mainItems } from '../../../pages/MainPage/HomePage';
 import { Wrapper, Header, TooltipBox } from './CurrentOrder.style';
 import StoreListsItem from '../StoreListsItem/StoreListsItem';
 import UseDrag from '../../../hooks/UseDrag';
 import { storeListSizes } from '../StoreLists/StoreLists';
+import DragCarousel from '../../common/DragCarousel/DragCarousel';
+import { itemGapObj, itemWidthObj } from '../../constants/itemConstatns';
+import { useState } from 'react';
 
-interface CurrentOrderProps {
-  items: Item[];
-}
-
-export interface IIsmobile {
-  $ismobile: boolean;
-}
-
-interface DragRefBoxProps {
-  itemGap: number;
-}
-
-export const DragContainer = styled.div<IIsmobile>`
-  overflow: hidden;
-  position: relative;
-  ${({ $ismobile }) =>
-    $ismobile &&
-    css`
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    `}
-`;
-
-export const DragRefRownBox = styled.div<DragRefBoxProps>`
+export const DragDirectionBox = styled.div<{ itemGap: number }>`
   display: flex;
   gap: ${({ itemGap }) => (itemGap ? `${itemGap}px` : '0px')};
 `;
 
-const CurrentOrder = ({ items }: CurrentOrderProps) => {
-  const itemWidth = 120;
-  const itemGap = 16;
+const CurrentOrder = () => {
+  const [itemLists, setItemLists] = useState(mainItems);
 
-  const { carouselItemsRef, isMobile, startPosition } = UseDrag({ items, itemWidth, itemGap });
+  const { carouselItemsRef, isMobile, isDragging, startPosition } = UseDrag({
+    items: itemLists,
+    itemWidth: itemWidthObj.currentOrder,
+    itemGap: itemGapObj.currentOrder,
+  });
+
   return (
     <section css={Wrapper}>
       <div css={Header}>
@@ -61,18 +40,17 @@ const CurrentOrder = ({ items }: CurrentOrderProps) => {
         <Link to="/">주문내역 보기 ＞ </Link>
       </div>
 
-      <DragContainer $ismobile={isMobile}>
-        <DragRefRownBox ref={carouselItemsRef} itemGap={itemGap}>
+      <DragCarousel isMobile={isMobile} carouselItemsRef={carouselItemsRef} isDragging={isDragging}>
+        <DragDirectionBox itemGap={itemGapObj.currentOrder}>
           <StoreListsItem
-            items={items}
-            itemWidth={itemWidth}
-            itemGap={itemGap}
+            items={itemLists}
+            itemWidth={itemWidthObj.currentOrder}
             size={storeListSizes.small}
             carouselItemsRef={carouselItemsRef}
             startPosition={startPosition}
           />
-        </DragRefRownBox>
-      </DragContainer>
+        </DragDirectionBox>
+      </DragCarousel>
     </section>
   );
 };

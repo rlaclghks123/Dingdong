@@ -136,7 +136,7 @@ const MainPage = () => {
       <div>
         <SearchBar />
         <CategoryList category={category} />
-        <CurrentOrder items={mainItems} />
+        <CurrentOrder />
       </div>
 
       <Nav />

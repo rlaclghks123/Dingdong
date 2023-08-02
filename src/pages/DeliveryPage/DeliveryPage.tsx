@@ -1,18 +1,19 @@
-import { css } from '@emotion/react';
 import { useState } from 'react';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import Layout from '../../layouts/Layout';
-import { HeaderItem, Item, mainItems } from '../MainPage/HomePage';
+import { HeaderItem, Item } from '../MainPage/HomePage';
 import MainHeader from '../../components/header/MainHeader/MainHeader';
 import AddressBox from '../../components/main/AddresBox/AddressBox';
 import Banner from '../../components/main/Banner/Banner';
 import MenuCategory from '../../components/main/MenuCategory/MenuCategory';
 import RecommendMenu from '../../components/main/RecommendMenu/RecommendMenu';
-import Nav from '../../components/nav/Nav';
 import SortTag from '../../components/main/SortTag/SortTag';
+import StoreLists from '../../components/main/StoreLists/StoreLists';
+import Nav from '../../components/nav/Nav';
 import SortModal from '../../components/Modal/SortModal';
 import commonStyle from '../../styles/common';
-import StoreLists from '../../components/main/StoreLists/StoreLists';
 
 const headerLeftData: HeaderItem[] = [
   {
@@ -48,7 +49,7 @@ const headerRightData: HeaderItem[] = [
   },
 ];
 
-const items: Item[] = [
+export const itemList: Item[] = [
   {
     link: '/1',
     img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQyfHwlRUMlOUQlOEMlRUMlOEIlOUR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
@@ -81,7 +82,7 @@ const items: Item[] = [
   },
 ];
 
-const menuItems = [
+export const menuItems = [
   {
     link: '/1',
     icon: (
@@ -284,7 +285,7 @@ const menuItems = [
   },
 ];
 
-const sortList: Item[] = [
+export const sortList: Item[] = [
   { title: '기본순' },
   { title: '배달팁' },
   { title: '이름순' },
@@ -294,11 +295,22 @@ const sortList: Item[] = [
   { title: '테스트' },
 ];
 
-const WhiteBox = css`
+export const Wrapper = styled.div<{ isClicked: boolean }>`
+  ${({ isClicked }) =>
+    isClicked &&
+    css`
+      position: fixed;
+      left: 0px;
+      right: 0px;
+      transform: translate(50% 0%);
+    `}
+`;
+
+export const WhiteBox = css`
   background-color: white;
 `;
 
-const SortContainer = css`
+export const SortContainer = css`
   background-color: white;
   margin-top: 16px;
   padding: ${commonStyle.boxUpAndDownPadding};
@@ -307,36 +319,28 @@ const SortContainer = css`
 const DeleveryPage = () => {
   const [isClicked, setIsClicked] = useState(false);
   return (
-    <div
-      css={
-        isClicked &&
-        css`
-          position: fixed;
-          left: 0px;
-          right: 0px;
-          transform: translate(50% 0%);
-        `
-      }
-    >
+    <Wrapper isClicked={isClicked}>
       <Layout>
         <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
         <div>
           <AddressBox />
-          <Banner items={items} itemWidth={360} />
+
+          <Banner />
+
           <div css={WhiteBox}>
-            <RecommendMenu items={items} itemWidth={100} itemGap={16} />
-            <MenuCategory menuItems={menuItems} />
+            <RecommendMenu />
+            <MenuCategory />
           </div>
 
           <div css={SortContainer}>
-            <SortTag items={sortList} itemWidth={70} itemGap={8} setIsClicked={setIsClicked} />
-            <StoreLists mainItems={mainItems} />
+            <SortTag setIsClicked={setIsClicked} />
+            <StoreLists />
           </div>
         </div>
         <Nav />
       </Layout>
       {isClicked && <SortModal sortList={sortList} setIsClicked={setIsClicked} />}
-    </div>
+    </Wrapper>
   );
 };
 export default DeleveryPage;

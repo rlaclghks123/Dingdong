@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Item } from '../pages/MainPage/HomePage';
 
 interface CarouselProps {
@@ -7,13 +7,6 @@ interface CarouselProps {
   itemGap?: number;
   autoPlay?: boolean;
   autoPlayDuration?: number;
-}
-
-export interface CarouselChildProps {
-  items: Item[];
-  itemWidth: number;
-  itemGap?: number;
-  carouselItemsRef?: React.RefObject<HTMLDivElement>;
 }
 
 const UseDrag = ({ items, itemWidth, itemGap = 0, autoPlay = false, autoPlayDuration = 3000 }: CarouselProps) => {

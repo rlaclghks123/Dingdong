@@ -1,16 +1,13 @@
 import { css } from '@emotion/react';
 import commonStyle from '../../../styles/common';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { menuItems } from '../../../pages/DeliveryPage/DeliveryPage';
 
 interface MenuItemsProps {
   link: string;
   name: string;
   icon: ReactNode;
-}
-
-interface MenuCategoryProps {
-  menuItems: MenuItemsProps[];
 }
 
 const GRID_LENGTH = 5;
@@ -57,18 +54,20 @@ const Dot = css`
   background-color: black;
 `;
 
-const MenuCategory = ({ menuItems }: MenuCategoryProps) => {
-  const getNumberOfDots = (menuItems: MenuItemsProps[]) => {
-    const emptyItemsCount = GRID_LENGTH - (menuItems.length % GRID_LENGTH);
+const MenuCategory = () => {
+  const [itemLists, setItemLists] = useState(menuItems);
+
+  const getNumberOfDots = (itemLists: MenuItemsProps[]) => {
+    const emptyItemsCount = GRID_LENGTH - (itemLists.length % GRID_LENGTH);
     const emptyItemList = Array.from({ length: emptyItemsCount }).fill(null);
     if (emptyItemList.length !== 5) return emptyItemList;
   };
 
-  const emptyItemList = getNumberOfDots(menuItems) || [];
+  const emptyItemList = getNumberOfDots(itemLists) || [];
 
   return (
     <section css={Wrapper}>
-      {menuItems.map((item, idx) => (
+      {itemLists.map((item, idx) => (
         <div css={MenuItemBox} key={idx}>
           <Link css={LinkBox} to={item.link}>
             <span>{item.icon}</span>

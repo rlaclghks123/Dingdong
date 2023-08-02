@@ -1,11 +1,9 @@
 import { css } from '@emotion/react';
 import StoreListsItem from '../StoreListsItem/StoreListsItem';
 import commonStyle from '../../../styles/common';
-import { Item } from '../../../pages/MainPage/HomePage';
-
-interface StoreListsProps {
-  mainItems: Item[];
-}
+import { mainItems } from '../../../pages/MainPage/HomePage';
+import { itemWidthObj } from '../../constants/itemConstatns';
+import { useState } from 'react';
 
 const Wrapper = css`
   margin: ${commonStyle.boxFullMargin};
@@ -22,11 +20,13 @@ export const storeListSizes = {
   large: 'LARGE',
 };
 
-const StoreLists = ({ mainItems }: StoreListsProps) => {
+const StoreLists = () => {
+  const [itemLists, setItemLists] = useState(mainItems);
+
   return (
     <div css={Wrapper}>
       <div css={ItmeBox}>
-        <StoreListsItem items={mainItems} itemWidth={332} size={storeListSizes.large} />
+        <StoreListsItem items={itemLists} itemWidth={itemWidthObj.storeLists} size={storeListSizes.large} />
       </div>
     </div>
   );
