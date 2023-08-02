@@ -4,8 +4,9 @@ import styled from '@emotion/styled';
 
 import { Item } from '../../../pages/MainPage/HomePage';
 import { Wrapper, Header, TooltipBox } from './CurrentOrder.style';
-import ProductCard from '../ProductCard/ProductCard';
+import StoreListsItem from '../StoreListsItem/StoreListsItem';
 import UseDrag from '../../../hooks/UseDrag';
+import { storeListSizes } from '../StoreLists/StoreLists';
 
 interface CurrentOrderProps {
   items: Item[];
@@ -21,7 +22,7 @@ interface DragRefBoxProps {
 
 export const DragContainer = styled.div<IIsmobile>`
   overflow: hidden;
-
+  position: relative;
   ${({ $ismobile }) =>
     $ismobile &&
     css`
@@ -62,10 +63,11 @@ const CurrentOrder = ({ items }: CurrentOrderProps) => {
 
       <DragContainer $ismobile={isMobile}>
         <DragRefRownBox ref={carouselItemsRef} itemGap={itemGap}>
-          <ProductCard
+          <StoreListsItem
             items={items}
             itemWidth={itemWidth}
             itemGap={itemGap}
+            size={storeListSizes.small}
             carouselItemsRef={carouselItemsRef}
             startPosition={startPosition}
           />

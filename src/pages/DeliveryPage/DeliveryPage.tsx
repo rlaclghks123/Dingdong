@@ -8,11 +8,11 @@ import AddressBox from '../../components/main/AddresBox/AddressBox';
 import Banner from '../../components/main/Banner/Banner';
 import MenuCategory from '../../components/main/MenuCategory/MenuCategory';
 import RecommendMenu from '../../components/main/RecommendMenu/RecommendMenu';
-import ProductCard from '../../components/main/ProductCard/ProductCard';
 import Nav from '../../components/nav/Nav';
 import SortTag from '../../components/main/SortTag/SortTag';
 import SortModal from '../../components/Modal/SortModal';
 import commonStyle from '../../styles/common';
+import StoreLists from '../../components/main/StoreLists/StoreLists';
 
 const headerLeftData: HeaderItem[] = [
   {
@@ -294,6 +294,16 @@ const sortList: Item[] = [
   { title: '테스트' },
 ];
 
+const WhiteBox = css`
+  background-color: white;
+`;
+
+const SortContainer = css`
+  background-color: white;
+  margin-top: 16px;
+  padding: ${commonStyle.boxUpAndDownPadding};
+`;
+
 const DeleveryPage = () => {
   const [isClicked, setIsClicked] = useState(false);
   return (
@@ -313,33 +323,14 @@ const DeleveryPage = () => {
         <div>
           <AddressBox />
           <Banner items={items} itemWidth={360} />
-
-          <div
-            css={css`
-              background-color: white;
-            `}
-          >
+          <div css={WhiteBox}>
             <RecommendMenu items={items} itemWidth={100} itemGap={16} />
-
             <MenuCategory menuItems={menuItems} />
           </div>
 
-          <div
-            css={css`
-              background-color: white;
-              margin-top: 16px;
-              padding: ${commonStyle.boxUpAndDownPadding};
-            `}
-          >
+          <div css={SortContainer}>
             <SortTag items={sortList} itemWidth={70} itemGap={8} setIsClicked={setIsClicked} />
-
-            <div
-              css={css`
-                margin: ${commonStyle.boxFullMargin};
-              `}
-            >
-              <ProductCard items={mainItems} itemWidth={332} itemGap={20} direction="column" boxShadow={true} />
-            </div>
+            <StoreLists mainItems={mainItems} />
           </div>
         </div>
         <Nav />
