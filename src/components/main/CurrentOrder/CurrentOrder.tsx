@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { useState } from 'react';
+
+import StoreListsItem from '../../common/StoreListsItem/StoreListsItem';
+import DragCarousel from '../../common/DragCarousel/DragCarousel';
 
 import { mainItems } from '../../../pages/MainPage/HomePage';
 import { Wrapper, Header, TooltipBox } from './CurrentOrder.style';
-import StoreListsItem from '../StoreListsItem/StoreListsItem';
 import UseDrag from '../../../hooks/UseDrag';
 import { storeListSizes } from '../StoreLists/StoreLists';
-import DragCarousel from '../../common/DragCarousel/DragCarousel';
 import { itemGapObj, itemWidthObj } from '../../constants/itemConstatns';
-import { useState } from 'react';
 
 export const DragDirectionBox = styled.div<{ itemGap: number }>`
   display: flex;

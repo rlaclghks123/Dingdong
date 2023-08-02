@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import StoreListsItem from '../StoreListsItem/StoreListsItem';
+import StoreListsItem from '../../common/StoreListsItem/StoreListsItem';
 import commonStyle from '../../../styles/common';
 import { mainItems } from '../../../pages/MainPage/HomePage';
 import { itemWidthObj } from '../../constants/itemConstatns';

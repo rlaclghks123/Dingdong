@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import theme from '../../../styles/theme';
 import styled from '@emotion/styled';
-import { storeListSizes } from '../StoreLists/StoreLists';
+import { storeListSizes } from '../../main/StoreLists/StoreLists';
 
 interface StoreListsItemProps {
   width?: number;
