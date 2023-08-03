@@ -1,13 +1,12 @@
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
 export const DragItemWrapper = css`
   display: flex;
   position: relative;
 `;
 
-export const Img = styled.img<{ width: number }>`
-  width: ${({ width }) => (width ? `${width}px` : '360px')};
+export const Img = (width: number) => css`
+  width: ${width ? `${width}px` : '360px'};
   height: 150px;
 `;
 

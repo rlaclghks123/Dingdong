@@ -1,15 +1,14 @@
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import theme from '../../../styles/theme';
 
-export const Wrapper = styled.div<{ itemGap: number }>`
+export const Wrapper = (itemGap: number) => css`
   display: flex;
-  gap: ${({ itemGap }) => (itemGap ? `${itemGap}px` : '0px')};
+  gap: ${itemGap ? `${itemGap}px` : '0px'};
 `;
 
-export const Button = styled.button<{ width: number }>`
+export const Button = (width: number) => css`
   border-radius: 8px;
-  width: ${({ width }) => (width ? `${width}px` : '120px')};
+  width: ${width ? `${width}px` : '120px'};
 `;
 
 export const Title = css`

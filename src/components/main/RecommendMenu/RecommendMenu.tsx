@@ -23,15 +23,15 @@ const RecommendMenu = () => {
 
   return (
     <DragCarousel isMobile={isMobile} carouselItemsRef={carouselItemsRef} isDragging={isDragging}>
-      <Wrapper itemGap={itemGapObj.recommendMenu}>
+      <div css={Wrapper(itemGapObj.recommendMenu)}>
         {itemLists.map((item, index) => (
           <div key={index}>
-            <Button url={item.img || ''} width={itemWidthObj.recommendMenu} onClick={handleClick} data-id={index}>
+            <button css={Button(item.img || '', itemWidthObj.recommendMenu)} onClick={handleClick} data-id={index}>
               <span css={TitleBox}>{item.title}</span>
-            </Button>
+            </button>
           </div>
         ))}
-      </Wrapper>
+      </div>
     </DragCarousel>
   );
 };

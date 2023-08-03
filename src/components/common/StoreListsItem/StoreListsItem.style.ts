@@ -1,35 +1,27 @@
 import { css } from '@emotion/react';
 import theme from '../../../styles/theme';
-import styled from '@emotion/styled';
 import { storeListSizes } from '../../main/StoreLists/StoreLists';
 
-interface StoreListsItemProps {
-  width?: number;
-  size?: string;
-}
-
-export const ItemBox = styled.button<StoreListsItemProps>`
+export const ItemBox = (itemWidth: number, size: string) => css`
   display: flex;
   flex-direction: column;
-
   border-radius: 16px;
-  width: ${({ width }) => (width ? `${width}px` : '150px')};
-  box-shadow: ${({ size }) => size === storeListSizes.large && `0px 3px 5px 0px ${theme.grey400}}`};
   cursor: pointer;
+  width: ${itemWidth ? `${itemWidth}px` : '150px'};
+  box-shadow: ${size === storeListSizes.large && `0px 3px 5px 0px ${theme.grey400}`};
 `;
 
-export const Img = styled.img<StoreListsItemProps>`
+export const Img = (size: string) => css`
   width: inherit;
-  border-radius: ${({ size }) => (size === storeListSizes.large ? '16px 16px 0px 0px' : '16px')};
+  border-radius: ${size === storeListSizes.large ? `16px 16px 0px 0px` : '16px'};
   height: 120px;
 `;
 
-export const ItemContents = styled.div<StoreListsItemProps>`
+export const ItemContents = (size: string) => css`
   display: flex;
   flex-direction: column;
-
-  width: ${({ width }) => (width ? `${width}px` : '150px')};
-  padding: ${({ size }) => size === storeListSizes.large && '0px 16px'};
+  width: inherit;
+  padding: ${size === storeListSizes.large && '0px 16px'};
   margin-top: 8px;
   font-size: 14px;
 
@@ -56,12 +48,12 @@ export const StarStyle = css`
   margin-right: 4px;
 `;
 
-export const ItemContentsDeliveryBox = styled.div<StoreListsItemProps>`
+export const ItemContentsDeliveryBox = (size: string) => css`
   display: flex;
-  flex-direction: ${({ size }) => (size === storeListSizes.large ? 'row' : 'column')};
+  flex-direction: ${size === storeListSizes.large ? 'row' : 'column'};
   text-align: left;
 
   span {
-    margin-right: ${({ size }) => size === storeListSizes.large && '8px'};
+    margin-right: ${size === storeListSizes.large && '8px'};
   }
 `;

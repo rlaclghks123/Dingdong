@@ -34,7 +34,7 @@ const Banner = () => {
       <div css={DragItemWrapper}>
         {itemLists.map((item, index) => (
           <button key={index} onClick={handleClick} data-id={index}>
-            <Img width={itemWidthObj.banner} src={item.img} alt={`${item.title} 사진`} />
+            <img css={Img(itemWidthObj.banner)} src={item.img} alt={`${item.title} 사진`} />
             <span css={TitleBox}>{item.title}</span>
           </button>
         ))}

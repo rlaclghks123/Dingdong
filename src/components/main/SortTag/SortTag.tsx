@@ -29,15 +29,15 @@ const SortTag = ({ setIsClicked }: SortTagProps) => {
 
   return (
     <DragCarousel isMobile={isMobile} carouselItemsRef={carouselItemsRef} isDragging={isDragging}>
-      <Wrapper itemGap={itemGapObj.sortTag}>
+      <div css={Wrapper(itemGapObj.sortTag)}>
         {itemLists.map((item, index) => (
           <div key={index}>
-            <Button width={itemWidthObj.sortTag} data-id={index} onClick={handleClick}>
+            <button css={Button(itemWidthObj.sortTag)} data-id={index} onClick={handleClick}>
               <span css={Title}>{item.title}</span>
-            </Button>
+            </button>
           </div>
         ))}
-      </Wrapper>
+      </div>
     </DragCarousel>
   );
 };

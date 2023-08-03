@@ -296,7 +296,7 @@ export const sortList: Item[] = [
 const DeleveryPage = () => {
   const [isClicked, setIsClicked] = useState(false);
   return (
-    <Wrapper isClicked={isClicked}>
+    <div css={Wrapper(isClicked)}>
       <Layout>
         <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
         <div>
@@ -317,7 +317,7 @@ const DeleveryPage = () => {
         <Nav />
       </Layout>
       {isClicked && <SortModal sortList={sortList} setIsClicked={setIsClicked} />}
-    </Wrapper>
+    </div>
   );
 };
 export default DeleveryPage;

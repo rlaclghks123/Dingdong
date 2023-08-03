@@ -10,12 +10,12 @@ interface DragCarouselProps {
 }
 const DragCarousel = ({ isMobile, carouselItemsRef, isDragging, slideIndicator = '', children }: DragCarouselProps) => {
   return (
-    <DragContainer isMobile={isMobile}>
-      <DragRefBox ref={carouselItemsRef} isDragging={isDragging}>
+    <div css={DragContainer(isMobile)}>
+      <div css={DragRefBox(isDragging)} ref={carouselItemsRef}>
         {children}
-      </DragRefBox>
+      </div>
       {slideIndicator !== '' && <div css={SlideIndicatorBox}>{slideIndicator}</div>}
-    </DragContainer>
+    </div>
   );
 };
 

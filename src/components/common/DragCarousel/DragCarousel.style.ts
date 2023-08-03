@@ -1,21 +1,19 @@
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import theme from '../../../styles/theme';
 
-export const DragContainer = styled.div<{ isMobile: boolean }>`
+export const DragContainer = (isMobile: boolean) => css`
   overflow: hidden;
   position: relative;
 
-  ${({ isMobile }) =>
-    isMobile &&
-    css`
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    `}
+  ${isMobile &&
+  `
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  `}
 `;
 
 export const SlideIndicatorBox = css`
@@ -32,10 +30,6 @@ export const SlideIndicatorBox = css`
   font-size: 8px;
 `;
 
-export const DragRefBox = styled.div<{ isDragging: boolean }>`
-  ${({ isDragging }) =>
-    !isDragging &&
-    css`
-      transition: transform 0.5s ease-in-out;
-    `}
+export const DragRefBox = (isDragging: boolean) => css`
+  ${!isDragging && ` transition: transform 0.5s ease-in-out;`}
 `;

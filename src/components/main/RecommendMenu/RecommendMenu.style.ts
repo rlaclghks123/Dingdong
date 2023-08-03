@@ -1,26 +1,20 @@
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 import commonStyle from '../../../styles/common';
 
-interface ButtonProps {
-  width: number;
-  url: string;
-}
-
-export const Wrapper = styled.div<{ itemGap: number }>`
+export const Wrapper = (itemGap: number) => css`
   display: flex;
 
   padding: ${commonStyle.boxSidePadding};
   margin: ${commonStyle.boxUpAndDownMargin};
 
-  gap: ${({ itemGap }) => (itemGap ? `${itemGap}px` : '0px')};
+  gap: ${itemGap ? `${itemGap}px` : '0px'};
 `;
 
-export const Button = styled.button<ButtonProps>`
-  width: ${({ width }) => (width ? `${width}px` : '120px')};
+export const Button = (url: string, width: number) => css`
+  width: ${width ? `${width}px` : '120px'};
   height: 100px;
 
-  background-image: url(${props => props.url});
+  background-image: ${url && `url(${url})`};
   background-size: 100% 100%;
 
   border-radius: 16px;

@@ -32,9 +32,9 @@ const StoreListsItem = ({ items, itemWidth, size, carouselItemsRef, startPositio
   return (
     <>
       {items.map((item, index) => (
-        <ItemBox key={index} onClick={handleClick} data-id={index} width={itemWidth} size={size}>
-          <Img src={item.img} alt={`${item.title} 사진`} width={itemWidth} size={size} />
-          <ItemContents width={itemWidth} size={size}>
+        <button css={ItemBox(itemWidth, size)} key={index} onClick={handleClick} data-id={index}>
+          <img css={Img(size)} src={item.img} alt={`${item.title} 사진`} />
+          <div css={ItemContents(size)}>
             <div css={ItemContentsStoreName}>
               <span css={ItemContentsStoreNameTitle}>{item.title}</span>
               <span>
@@ -45,13 +45,13 @@ const StoreListsItem = ({ items, itemWidth, size, carouselItemsRef, startPositio
               <span>{`${item.star}점`}</span>
             </div>
             <div>
-              <ItemContentsDeliveryBox size={size}>
+              <div css={ItemContentsDeliveryBox(size)}>
                 <span>배달 : {item.deliveryTime}</span>
                 <span>배달팁 : {`${item?.deliveryTip?.toLocaleString()}원`}</span>
-              </ItemContentsDeliveryBox>
+              </div>
             </div>
-          </ItemContents>
-        </ItemBox>
+          </div>
+        </button>
       ))}
     </>
   );
