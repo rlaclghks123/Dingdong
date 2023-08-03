@@ -8,6 +8,7 @@ export const Wrapper = css`
 `;
 
 export const LayoutBox = css`
+  width: 100%;
   max-width: ${commonStyle.maxWidth};
   margin-bottom: 60px;
 `;
@@ -22,8 +23,6 @@ export const Header = css`
 export const Main = css`
   display: flex;
   flex-direction: column;
-  width: 100%;
-
   margin-top: 65px;
 `;
 
