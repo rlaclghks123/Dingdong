@@ -1,7 +1,17 @@
 import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { css } from '@emotion/react';
 import { menuItems } from '../../../pages/DeliveryPage/DeliveryPage';
-import { Wrapper, MenuItemBox, LinkBox, Name, EmptyItems, Dot, GRID_LENGTH } from './MenuCategory.style';
+import {
+  Wrapper,
+  MenuItemBox,
+  LinkBox,
+  Name,
+  EmptyItems,
+  Dot,
+  GRID_LENGTH,
+  MenuCategoryBox,
+} from './MenuCategory.style';
 
 interface MenuItemsProps {
   link: string;
@@ -22,20 +32,22 @@ const MenuCategory = () => {
 
   return (
     <section css={Wrapper}>
-      {itemLists.map((item, idx) => (
-        <div css={MenuItemBox} key={idx}>
-          <Link css={LinkBox} to={item.link}>
-            <span>{item.icon}</span>
-            <span css={Name}>{item.name}</span>
-          </Link>
-        </div>
-      ))}
+      <div css={MenuCategoryBox}>
+        {itemLists.map((item, idx) => (
+          <div css={MenuItemBox} key={idx}>
+            <Link css={LinkBox} to={item.link}>
+              <span>{item.icon}</span>
+              <span css={Name}>{item.name}</span>
+            </Link>
+          </div>
+        ))}
 
-      {emptyItemList.map((_, idx) => (
-        <div css={EmptyItems} key={`empty-${idx}`}>
-          <span css={Dot} />
-        </div>
-      ))}
+        {emptyItemList.map((_, idx) => (
+          <div css={EmptyItems} key={`empty-${idx}`}>
+            <span css={Dot} />
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

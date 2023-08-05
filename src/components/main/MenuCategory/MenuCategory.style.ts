@@ -1,15 +1,19 @@
 import { css } from '@emotion/react';
-import commonStyle from '../../../styles/common';
+import theme from '../../../styles/theme';
 
 export const GRID_LENGTH = 5;
 
 export const Wrapper = css`
+  padding: 0px 16px 16px 16px;
+  background-color: white;
+`;
+
+export const MenuCategoryBox = css`
   display: grid;
   grid-template-columns: repeat(${GRID_LENGTH}, 1fr);
-
-  padding: ${commonStyle.boxSidePadding};
-
-  background-color: white;
+  padding: 16px 8px;
+  background-color: ${theme.grey100};
+  border-radius: 16px;
 `;
 
 export const MenuItemBox = css`
