@@ -1,31 +1,86 @@
 import { css } from '@emotion/react';
 import theme from '../../../styles/theme';
-import { storeListSizes } from '../../main/StoreLists/StoreLists';
+
+interface CSSObject {
+  [key: string]: {
+    flexDirection: string;
+    borderBottom?: string;
+    imgMinWidth: string;
+    imgWidth: string;
+    imgHeight: string;
+    imgBorderRadius: string;
+    itemContentsDeliveryBoxFlexDirection: string;
+    itemContentsDeliveryBoxGap?: string;
+    borderRadius?: string;
+    boxShadow?: string;
+    itemContentsPadding?: string;
+  };
+}
+
+const CSS: CSSObject = {
+  SMALL: {
+    flexDirection: 'row',
+    borderBottom: '1px solid rgba(0,0,0,0.1)',
+
+    imgMinWidth: '80px',
+    imgWidth: '80px',
+    imgHeight: '80px',
+    imgBorderRadius: `16px`,
+
+    itemContentsDeliveryBoxFlexDirection: 'row',
+    itemContentsDeliveryBoxGap: '8px',
+  },
+  MEDIUM: {
+    flexDirection: 'column',
+    borderRadius: '16px',
+
+    imgMinWidth: 'inherit',
+    imgWidth: '100%',
+    imgHeight: '120px',
+    imgBorderRadius: `16px`,
+
+    itemContentsDeliveryBoxFlexDirection: 'column',
+  },
+  LARGE: {
+    flexDirection: 'column',
+    borderRadius: '16px',
+    boxShadow: `0px 3px 5px 0px ${theme.grey400}`,
+
+    imgMinWidth: 'inherit',
+    imgWidth: '100%',
+    imgHeight: '120px',
+    imgBorderRadius: `16px 16px 0px 0px`,
+
+    itemContentsPadding: '0px 16px',
+    itemContentsDeliveryBoxFlexDirection: 'row',
+    itemContentsDeliveryBoxGap: '8px',
+  },
+};
 
 export const ItemBox = (itemWidth: number, size: string) => css`
   display: flex;
-  flex-direction: ${size === storeListSizes.small ? 'row' : 'column'};
-  border-radius: ${size !== storeListSizes.small && '16px'};
-  cursor: pointer;
+  flex-direction: ${CSS[size].flexDirection};
+  border-radius: ${CSS[size].borderRadius};
+  border-bottom: ${CSS[size].borderBottom};
   width: ${itemWidth && `${itemWidth}px`};
-  box-shadow: ${size === storeListSizes.large && `0px 3px 5px 0px ${theme.grey400}`};
+  box-shadow: ${CSS[size].boxShadow};
   gap: 8px;
   padding-bottom: 16px;
-  border-bottom: ${size === storeListSizes.small && '1px solid rgba(0,0,0,0.1)'};
+  cursor: pointer;
 `;
 
 export const Img = (size: string) => css`
-  min-width: ${size === storeListSizes.small ? `80px` : 'inherit'};
-  width: ${size === storeListSizes.small ? `80px` : '100%'};
-  height: ${size === storeListSizes.small ? `80px` : '120px'};
-  border-radius: ${size === storeListSizes.large ? `16px 16px 0px 0px` : '16px'};
+  min-width: ${CSS[size].imgMinWidth};
+  width: ${CSS[size].imgWidth};
+  height: ${CSS[size].imgHeight};
+  border-radius: ${CSS[size].imgBorderRadius};
 `;
 
 export const ItemContents = (size: string) => css`
   display: flex;
   flex-direction: column;
   width: inherit;
-  padding: ${size === storeListSizes.large && '0px 16px'};
+  padding: ${CSS[size].itemContentsPadding};
   font-size: 14px;
 
   span {
@@ -53,7 +108,7 @@ export const StarStyle = css`
 
 export const ItemContentsDeliveryBox = (size: string) => css`
   display: flex;
-  flex-direction: ${size === storeListSizes.medium ? 'column' : 'row'};
+  flex-direction: ${CSS[size].itemContentsDeliveryBoxFlexDirection};
   text-align: left;
-  gap: ${size !== storeListSizes.medium && '8px'};
+  gap: ${CSS[size].itemContentsDeliveryBoxGap};
 `;
