@@ -4,7 +4,6 @@ import { css } from '@emotion/react';
 import Layout from '../../layouts/Layout';
 import { headerLeftData, headerRightData, sortList } from '../DeliveryPage/DeliveryPage';
 import MainHeader from '../../components/header/MainHeader/MainHeader';
-import Nav from '../../components/nav/Nav';
 import SortTag from '../../components/main/SortTag/SortTag';
 import SortModal from '../../components/Modal/SortModal';
 import StoreLists, { storeListSizes } from '../../components/main/StoreLists/StoreLists';
@@ -31,7 +30,6 @@ const StoreCategory = () => {
             <SortTag setIsClicked={setIsClicked} />
             <StoreLists size={storeListSizes.small} />
           </div>
-          <Nav />
         </Layout>
         {isClicked && <SortModal sortList={sortList} setIsClicked={setIsClicked} />}
       </div>
