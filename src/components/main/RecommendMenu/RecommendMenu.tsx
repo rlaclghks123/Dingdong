@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import UseDrag from '../../../hooks/UseDrag';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
 import { itemList } from '../../../pages/DeliveryPage/DeliveryPage';
-import { itemGapObj, itemWidthObj } from '../../constants/itemConstatns';
+import { itemGapObj, itemWidthObj } from '../../../constants/itemConstatns';
 import { Wrapper, Button, TitleBox } from './RecommendMenu.style';
 
 const RecommendMenu = () => {

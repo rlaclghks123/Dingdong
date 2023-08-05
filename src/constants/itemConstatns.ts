@@ -4,6 +4,7 @@ export const itemWidthObj = {
   recommendMenu: 100,
   sortTag: 70,
   storeLists: 332,
+  StoreCategory: 332,
 };
 
 export const itemGapObj = {

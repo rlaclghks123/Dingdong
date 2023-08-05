@@ -4,7 +4,7 @@ import { useState } from 'react';
 import StoreListsItem from '../../common/StoreListsItem/StoreListsItem';
 import commonStyle from '../../../styles/common';
 import { mainItems } from '../../../pages/HomePage/HomePage';
-import { itemWidthObj } from '../../constants/itemConstatns';
+import { itemWidthObj } from '../../../constants/itemConstatns';
 
 const Wrapper = css`
   margin: ${commonStyle.boxFullMargin};
@@ -18,6 +18,7 @@ const ItmeBox = css`
 
 export const storeListSizes = {
   small: 'SMALL',
+  medium: 'MEDIUM',
   large: 'LARGE',
 };
 

@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import UseDrag from '../../../hooks/UseDrag';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
-import { itemWidthObj } from '../../constants/itemConstatns';
+import { itemWidthObj } from '../../../constants/itemConstatns';
 import { itemList } from '../../../pages/DeliveryPage/DeliveryPage';
 import { DragItemWrapper, Img, TitleBox } from './Banner.style';
 

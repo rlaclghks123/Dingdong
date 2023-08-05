@@ -3,7 +3,7 @@ import { useState } from 'react';
 import UseDrag from '../../../hooks/UseDrag';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
 import { sortList } from '../../../pages/DeliveryPage/DeliveryPage';
-import { itemGapObj, itemWidthObj } from '../../constants/itemConstatns';
+import { itemGapObj, itemWidthObj } from '../../../constants/itemConstatns';
 import { Wrapper, Button, Title } from './SortTag.style';
 
 interface SortTagProps {

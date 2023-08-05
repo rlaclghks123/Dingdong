@@ -9,7 +9,7 @@ import { mainItems } from '../../../pages/HomePage/HomePage';
 import { Wrapper, Header, TooltipBox } from './CurrentOrder.style';
 import UseDrag from '../../../hooks/UseDrag';
 import { storeListSizes } from '../StoreLists/StoreLists';
-import { itemGapObj, itemWidthObj } from '../../constants/itemConstatns';
+import { itemGapObj, itemWidthObj } from '../../../constants/itemConstatns';
 
 export const DragDirectionBox = styled.div<{ itemGap: number }>`
   display: flex;
@@ -46,7 +46,7 @@ const CurrentOrder = () => {
           <StoreListsItem
             items={itemLists}
             itemWidth={itemWidthObj.currentOrder}
-            size={storeListSizes.small}
+            size={storeListSizes.medium}
             carouselItemsRef={carouselItemsRef}
             startPosition={startPosition}
           />
