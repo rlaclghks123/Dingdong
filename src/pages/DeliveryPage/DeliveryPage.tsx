@@ -8,7 +8,7 @@ import Banner from '../../components/main/Banner/Banner';
 import MenuCategory from '../../components/main/MenuCategory/MenuCategory';
 import RecommendMenu from '../../components/main/RecommendMenu/RecommendMenu';
 import SortTag from '../../components/main/SortTag/SortTag';
-import StoreLists from '../../components/main/StoreLists/StoreLists';
+import StoreLists, { storeListSizes } from '../../components/main/StoreLists/StoreLists';
 import Nav from '../../components/nav/Nav';
 import SortModal from '../../components/Modal/SortModal';
 import { Wrapper, WhiteBox, SortContainer } from './DeliveryPage.style.ts';
@@ -309,7 +309,7 @@ const DeleveryPage = () => {
 
           <div css={SortContainer}>
             <SortTag setIsClicked={setIsClicked} />
-            <StoreLists />
+            <StoreLists size={storeListSizes.large} />
           </div>
         </div>
         <Nav />

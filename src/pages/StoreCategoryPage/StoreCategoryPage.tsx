@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { css } from '@emotion/react';
 
 import Layout from '../../layouts/Layout';
@@ -8,9 +7,9 @@ import MainHeader from '../../components/header/MainHeader/MainHeader';
 import Nav from '../../components/nav/Nav';
 import SortTag from '../../components/main/SortTag/SortTag';
 import SortModal from '../../components/Modal/SortModal';
+import StoreLists, { storeListSizes } from '../../components/main/StoreLists/StoreLists';
 
 export const Wrapper = (isClicked: boolean) => css`
-  background-color: white;
   ${isClicked &&
   `
       position: fixed;
@@ -30,6 +29,7 @@ const StoreCategory = () => {
           <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
           <div>
             <SortTag setIsClicked={setIsClicked} />
+            <StoreLists size={storeListSizes.small} />
           </div>
           <Nav />
         </Layout>

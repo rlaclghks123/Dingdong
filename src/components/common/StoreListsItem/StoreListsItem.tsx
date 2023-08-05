@@ -16,6 +16,7 @@ interface StoreListsItemdProps {
   items: Item[];
   itemWidth: number;
   size: string;
+  imgWidth?: number | string;
   carouselItemsRef?: React.RefObject<HTMLDivElement>;
   startPosition?: number;
 }

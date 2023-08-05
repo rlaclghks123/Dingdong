@@ -4,17 +4,21 @@ import { storeListSizes } from '../../main/StoreLists/StoreLists';
 
 export const ItemBox = (itemWidth: number, size: string) => css`
   display: flex;
-  flex-direction: column;
-  border-radius: 16px;
+  flex-direction: ${size === storeListSizes.small ? 'row' : 'column'};
+  border-radius: ${size !== storeListSizes.small && '16px'};
   cursor: pointer;
-  width: ${itemWidth ? `${itemWidth}px` : '150px'};
+  width: ${itemWidth && `${itemWidth}px`};
   box-shadow: ${size === storeListSizes.large && `0px 3px 5px 0px ${theme.grey400}`};
+  gap: 8px;
+  padding-bottom: 16px;
+  border-bottom: ${size === storeListSizes.small && '1px solid rgba(0,0,0,0.1)'};
 `;
 
 export const Img = (size: string) => css`
-  width: inherit;
+  min-width: ${size === storeListSizes.small ? `80px` : 'inherit'};
+  width: ${size === storeListSizes.small ? `80px` : '100%'};
+  height: ${size === storeListSizes.small ? `80px` : '120px'};
   border-radius: ${size === storeListSizes.large ? `16px 16px 0px 0px` : '16px'};
-  height: 120px;
 `;
 
 export const ItemContents = (size: string) => css`
@@ -22,7 +26,6 @@ export const ItemContents = (size: string) => css`
   flex-direction: column;
   width: inherit;
   padding: ${size === storeListSizes.large && '0px 16px'};
-  margin-top: 8px;
   font-size: 14px;
 
   span {
@@ -50,10 +53,7 @@ export const StarStyle = css`
 
 export const ItemContentsDeliveryBox = (size: string) => css`
   display: flex;
-  flex-direction: ${size === storeListSizes.large ? 'row' : 'column'};
+  flex-direction: ${size === storeListSizes.medium ? 'column' : 'row'};
   text-align: left;
-
-  span {
-    margin-right: ${size === storeListSizes.large && '8px'};
-  }
+  gap: ${size !== storeListSizes.medium && '8px'};
 `;
