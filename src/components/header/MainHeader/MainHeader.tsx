@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Wrapper, Box, Layout } from './MainHeader.styles';
 
 interface HeaderItem {
@@ -15,6 +15,7 @@ interface HeaderItemProps {
 
 const Header = ({ leftItem, rightItem }: HeaderItemProps) => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const renderHeaderRightItem = (item: HeaderItem, index: number) => {
     const { link, icon, title } = item;
@@ -30,11 +31,16 @@ const Header = ({ leftItem, rightItem }: HeaderItemProps) => {
 
   const renderHeaderLeftItem = (item: HeaderItem, index: number) => {
     const { icon, title } = item;
+
     return (
       <div css={Layout} key={index}>
-        <button onClick={() => navigate(-1)}>
+        {pathname === '/' ? (
           <span>{icon}</span>
-        </button>
+        ) : (
+          <button onClick={() => navigate(-1)}>
+            <span>{icon}</span>
+          </button>
+        )}
         <h1>{title}</h1>
       </div>
     );
