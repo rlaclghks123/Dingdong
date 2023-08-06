@@ -37,7 +37,7 @@ const StoreListsItem = ({ items, itemWidth, size, carouselItemsRef, startPositio
           <img css={Img(size)} src={item.img} alt={`${item.title} 사진`} />
 
           <div css={ItemContents(size)}>
-            <div css={ItemContentsStoreName}>
+            <div css={ItemContentsStoreName(size)}>
               <span css={ItemContentsStoreNameTitle}>{item.title}</span>
               <span>
                 <svg css={StarStyle} xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">

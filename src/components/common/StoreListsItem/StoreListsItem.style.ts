@@ -9,6 +9,7 @@ interface CSSObject {
     imgWidth: string;
     imgHeight: string;
     imgBorderRadius: string;
+    ItemContentsStoreNameFlexDirection: string;
     itemContentsDeliveryBoxFlexDirection: string;
     itemContentsDeliveryBoxGap?: string;
     borderRadius?: string;
@@ -27,6 +28,8 @@ const CSS: CSSObject = {
     imgHeight: '80px',
     imgBorderRadius: `16px`,
 
+    ItemContentsStoreNameFlexDirection: 'column',
+
     itemContentsDeliveryBoxFlexDirection: 'row',
     itemContentsDeliveryBoxGap: '8px',
   },
@@ -38,6 +41,8 @@ const CSS: CSSObject = {
     imgWidth: '100%',
     imgHeight: '120px',
     imgBorderRadius: `16px`,
+
+    ItemContentsStoreNameFlexDirection: 'row',
 
     itemContentsDeliveryBoxFlexDirection: 'column',
   },
@@ -51,6 +56,7 @@ const CSS: CSSObject = {
     imgHeight: '120px',
     imgBorderRadius: `16px 16px 0px 0px`,
 
+    ItemContentsStoreNameFlexDirection: 'row',
     itemContentsPadding: '0px 16px',
     itemContentsDeliveryBoxFlexDirection: 'row',
     itemContentsDeliveryBoxGap: '8px',
@@ -79,6 +85,7 @@ export const Img = (size: string) => css`
 export const ItemContents = (size: string) => css`
   display: flex;
   flex-direction: column;
+  text-align: left;
   width: inherit;
   padding: ${CSS[size].itemContentsPadding};
   font-size: 14px;
@@ -88,8 +95,9 @@ export const ItemContents = (size: string) => css`
   }
 `;
 
-export const ItemContentsStoreName = css`
+export const ItemContentsStoreName = (size: string) => css`
   display: flex;
+  flex-direction: ${CSS[size].ItemContentsStoreNameFlexDirection};
 `;
 
 export const ItemContentsStoreNameTitle = css`
