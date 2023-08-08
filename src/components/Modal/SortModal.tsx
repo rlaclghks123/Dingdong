@@ -13,7 +13,7 @@ const SortModal = ({ sortList, setIsClicked }: SortModalProps) => {
 
   return (
     <>
-      <div css={ModalDarkBgWrapper}></div>
+      <div css={ModalDarkBgWrapper} onClick={handleClick} />
       <div css={ModalContentsBox}>
         <h2 css={ModalTitle}>정렬</h2>
         <ul css={ModalUl}>

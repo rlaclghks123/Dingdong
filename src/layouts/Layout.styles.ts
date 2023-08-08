@@ -16,7 +16,7 @@ export const Header = css`
   position: fixed;
   top: 0px;
   width: ${commonStyle.maxWidth};
-  z-index: 9999;
+  z-index: 99;
 `;
 
 export const Main = css`

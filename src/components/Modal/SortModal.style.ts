@@ -10,6 +10,7 @@ export const ModalDarkBgWrapper = css`
 
   background-color: black;
   opacity: 0.7;
+  z-index: 999;
 `;
 
 export const ModalContentsBox = css`
@@ -21,6 +22,7 @@ export const ModalContentsBox = css`
   right: 50%;
   bottom: 0px;
   transform: translate(-50%, 0%);
+  z-index: 9999;
 
   width: ${commonStyle.maxWidth};
   height: 70%;

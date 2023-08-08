@@ -18,22 +18,31 @@ export const Wrapper = (isClicked: boolean) => css`
  `}
 `;
 
+const HeaderBox = css`
+  width: 100%;
+  backdrop-filter: blur(8px);
+`;
+
+const MainBox = css`
+  margin-top: 24px;
+`;
+
 const StoreCategory = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
-    <>
-      <div css={Wrapper(isClicked)}>
-        <Layout>
+    <div css={Wrapper(isClicked)}>
+      <Layout>
+        <div css={HeaderBox}>
           <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
-          <div>
-            <SortTag setIsClicked={setIsClicked} />
-            <StoreLists size={storeListSizes.small} />
-          </div>
-        </Layout>
-        {isClicked && <SortModal sortList={sortList} setIsClicked={setIsClicked} />}
-      </div>
-    </>
+          <SortTag setIsClicked={setIsClicked} />
+        </div>
+        <div css={MainBox}>
+          <StoreLists size={storeListSizes.small} />
+        </div>
+      </Layout>
+      {isClicked && <SortModal sortList={sortList} setIsClicked={setIsClicked} />}
+    </div>
   );
 };
 
