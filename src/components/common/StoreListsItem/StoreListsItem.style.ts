@@ -1,106 +1,182 @@
 import { css } from '@emotion/react';
 import theme from '../../../styles/theme';
 
-interface CSSObject {
+interface ITEM_BOX_VARIANTS_INTERFACE {
   [key: string]: {
-    flexDirection: string;
+    flexDirection?: string;
     borderBottom?: string;
-    imgMinWidth: string;
-    imgWidth: string;
-    imgHeight: string;
-    imgBorderRadius: string;
-    ItemContentsStoreNameFlexDirection: string;
-    itemContentsDeliveryBoxFlexDirection: string;
-    itemContentsDeliveryBoxGap?: string;
     borderRadius?: string;
     boxShadow?: string;
-    itemContentsPadding?: string;
   };
 }
 
-const CSS: CSSObject = {
+interface IMG_VARIANTS_INTERFACE {
+  [key: string]: {
+    imgMinWidth?: string;
+    imgWidth?: string;
+    imgHeight?: string;
+    imgBorderRadius?: string;
+  };
+}
+
+interface DESCRIPTION_BOX_VARIANTS_INTERFACE {
+  [key: string]: {
+    padding: string;
+  };
+}
+
+interface DESCRIPTION_TITLE_VARIANTS_INTERFACE {
+  [key: string]: {
+    flexDirection: string;
+  };
+}
+
+interface DESCRIPTION_DELIVERY_BOX_VARIANTS_INTERFACE {
+  [key: string]: {
+    flexDirection: string;
+    gap: string;
+  };
+}
+
+const ITEM_BOX_VARIANTS: ITEM_BOX_VARIANTS_INTERFACE = {
   SMALL: {
     flexDirection: 'row',
+    borderRadius: '0px',
     borderBottom: '1px solid rgba(0,0,0,0.1)',
+    boxShadow: '',
+  },
 
+  MEDIUM: {
+    flexDirection: 'column',
+    borderRadius: '16px',
+    borderBottom: '',
+    boxShadow: '',
+  },
+
+  LARGE: {
+    flexDirection: 'column',
+    borderRadius: '16px',
+    borderBottom: '',
+    boxShadow: `0px 3px 5px 0px ${theme.grey400}`,
+  },
+};
+
+const IMG_VARIANTS: IMG_VARIANTS_INTERFACE = {
+  SMALL: {
     imgMinWidth: '80px',
     imgWidth: '80px',
     imgHeight: '80px',
     imgBorderRadius: `16px`,
-
-    ItemContentsStoreNameFlexDirection: 'column',
-
-    itemContentsDeliveryBoxFlexDirection: 'row',
-    itemContentsDeliveryBoxGap: '8px',
   },
-  MEDIUM: {
-    flexDirection: 'column',
-    borderRadius: '16px',
 
+  MEDIUM: {
     imgMinWidth: 'inherit',
-    imgWidth: '100%',
+    imgWidth: 'inherit',
     imgHeight: '120px',
     imgBorderRadius: `16px`,
-
-    ItemContentsStoreNameFlexDirection: 'row',
-
-    itemContentsDeliveryBoxFlexDirection: 'column',
   },
-  LARGE: {
-    flexDirection: 'column',
-    borderRadius: '16px',
-    boxShadow: `0px 3px 5px 0px ${theme.grey400}`,
 
+  LARGE: {
     imgMinWidth: 'inherit',
-    imgWidth: '100%',
+    imgWidth: 'inherit',
     imgHeight: '120px',
     imgBorderRadius: `16px 16px 0px 0px`,
-
-    ItemContentsStoreNameFlexDirection: 'row',
-    itemContentsPadding: '0px 16px',
-    itemContentsDeliveryBoxFlexDirection: 'row',
-    itemContentsDeliveryBoxGap: '8px',
   },
 };
 
-export const ItemBox = (itemWidth: number, size: string) => css`
+const DESCRIPTION_BOX_VARIANTS: DESCRIPTION_BOX_VARIANTS_INTERFACE = {
+  SMALL: {
+    padding: '0px',
+  },
+
+  MEDIUM: {
+    padding: '0px',
+  },
+
+  LARGE: {
+    padding: '0px 16px',
+  },
+};
+
+const DESCRIPTION_TITLE_BOX_VARIANTS: DESCRIPTION_TITLE_VARIANTS_INTERFACE = {
+  SMALL: {
+    flexDirection: 'column',
+  },
+
+  MEDIUM: {
+    flexDirection: 'row',
+  },
+
+  LARGE: {
+    flexDirection: 'row',
+  },
+};
+
+const DESCRIPTION_DELIVERY_BOX_VARIANTS: DESCRIPTION_DELIVERY_BOX_VARIANTS_INTERFACE = {
+  SMALL: {
+    flexDirection: 'row',
+    gap: '8px',
+  },
+
+  MEDIUM: {
+    flexDirection: 'column',
+    gap: '4px',
+  },
+
+  LARGE: {
+    flexDirection: 'row',
+    gap: '8px',
+  },
+};
+
+const ItemBoxDefault = (itemWidth: number) => css`
   display: flex;
-  flex-direction: ${CSS[size].flexDirection};
-  border-radius: ${CSS[size].borderRadius};
-  border-bottom: ${CSS[size].borderBottom};
-  width: ${itemWidth && `${itemWidth}px`};
-  box-shadow: ${CSS[size].boxShadow};
-  gap: 8px;
+  width: ${`${itemWidth}px`};
   padding-bottom: 16px;
+  gap: 8px;
   cursor: pointer;
 `;
 
-export const Img = (size: string) => css`
-  min-width: ${CSS[size].imgMinWidth};
-  width: ${CSS[size].imgWidth};
-  height: ${CSS[size].imgHeight};
-  border-radius: ${CSS[size].imgBorderRadius};
+export const ItemBox = (itemWidth: number, size: string) => css`
+  ${ItemBoxDefault(itemWidth)}
+  flex-direction: ${ITEM_BOX_VARIANTS[size].flexDirection};
+  border-radius: ${ITEM_BOX_VARIANTS[size].borderRadius};
+  border-bottom: ${ITEM_BOX_VARIANTS[size].borderBottom};
+  box-shadow: ${ITEM_BOX_VARIANTS[size].boxShadow};
 `;
 
-export const ItemContents = (size: string) => css`
+export const Img = (size: string) => css`
+  min-width: ${IMG_VARIANTS[size].imgMinWidth};
+  width: ${IMG_VARIANTS[size].imgWidth};
+  height: ${IMG_VARIANTS[size].imgHeight};
+  border-radius: ${IMG_VARIANTS[size].imgBorderRadius};
+`;
+
+const DescriptionBoxDefault = css`
   display: flex;
   flex-direction: column;
   text-align: left;
   width: inherit;
-  padding: ${CSS[size].itemContentsPadding};
   font-size: 14px;
-
-  span {
-    margin: 4px 0px;
-  }
 `;
 
-export const ItemContentsStoreName = (size: string) => css`
+export const DescriptionBox = (size: string) => css`
+  ${DescriptionBoxDefault};
+  padding: ${DESCRIPTION_BOX_VARIANTS[size].padding};
+`;
+
+const DescriptionTitleBoxDefault = css`
   display: flex;
-  flex-direction: ${CSS[size].ItemContentsStoreNameFlexDirection};
+  margin: 4px 0px;
+  flex-direction: row;
 `;
 
-export const ItemContentsStoreNameTitle = css`
+export const DescriptionTitleBox = (size: string) => css`
+  ${DescriptionTitleBoxDefault};
+  flex-direction: ${DESCRIPTION_TITLE_BOX_VARIANTS[size].flexDirection};
+`;
+
+export const DescriptionTitle = css`
   display: block;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -110,13 +186,19 @@ export const ItemContentsStoreNameTitle = css`
 
 export const StarStyle = css`
   font-size: 12px;
-  fill: ${theme.yellow300};
   margin-right: 4px;
+  fill: ${theme.yellow300};
 `;
 
-export const ItemContentsDeliveryBox = (size: string) => css`
+const DescriptionDeliveryBoxDefault = css`
   display: flex;
-  flex-direction: ${CSS[size].itemContentsDeliveryBoxFlexDirection};
   text-align: left;
-  gap: ${CSS[size].itemContentsDeliveryBoxGap};
+  flex-direction: row;
+  gap: 8px;
+`;
+
+export const DescriptionDeliveryBox = (size: string) => css`
+  ${DescriptionDeliveryBoxDefault};
+  flex-direction: ${DESCRIPTION_DELIVERY_BOX_VARIANTS[size].flexDirection};
+  gap: ${DESCRIPTION_DELIVERY_BOX_VARIANTS[size].gap};
 `;
