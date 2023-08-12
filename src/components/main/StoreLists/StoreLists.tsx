@@ -67,7 +67,7 @@ export const stoteList = [
     category: 'chicken',
     item: [
       {
-        link: '/1',
+        link: 'bbq',
         img: 'https://media.istockphoto.com/id/1464933637/ko/%EC%82%AC%EC%A7%84/%ED%95%9C%EA%B5%AD-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%93%9C-%EC%B9%98%ED%82%A8%EC%9D%98-%ED%83%91-%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%B7%B0-%EA%B0%93-%EC%9A%94%EB%A6%AC%ED%95%98%EB%8A%94-%EB%8F%99%EC%95%88-%EC%8B%9D%EC%9A%95%EC%9D%84-%EB%8F%8B%EC%9A%B0%EA%B3%A0-%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%A5%BC%EC%9C%84%ED%95%9C-%EA%B3%B5%EA%B0%84.webp?b=1&s=170667a&w=0&k=20&c=ENTeBL1B9fUN43kjOOoeQA1sAGyR-LGjOv6LLlc39jk=',
         title: 'BBQ 삼산점',
         deliveryTime: '40~60분',
@@ -75,7 +75,7 @@ export const stoteList = [
         deliveryTip: 3000,
       },
       {
-        link: '/2',
+        link: 'bhc',
         img: 'https://media.istockphoto.com/id/1464933637/ko/%EC%82%AC%EC%A7%84/%ED%95%9C%EA%B5%AD-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%93%9C-%EC%B9%98%ED%82%A8%EC%9D%98-%ED%83%91-%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%B7%B0-%EA%B0%93-%EC%9A%94%EB%A6%AC%ED%95%98%EB%8A%94-%EB%8F%99%EC%95%88-%EC%8B%9D%EC%9A%95%EC%9D%84-%EB%8F%8B%EC%9A%B0%EA%B3%A0-%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%A5%BC%EC%9C%84%ED%95%9C-%EA%B3%B5%EA%B0%84.webp?b=1&s=170667a&w=0&k=20&c=ENTeBL1B9fUN43kjOOoeQA1sAGyR-LGjOv6LLlc39jk=',
         title: 'BHC 삼산점',
         deliveryTime: '40~60분',
@@ -83,7 +83,7 @@ export const stoteList = [
         deliveryTip: 3000,
       },
       {
-        link: '/3',
+        link: 'goobne',
         img: 'https://media.istockphoto.com/id/1464933637/ko/%EC%82%AC%EC%A7%84/%ED%95%9C%EA%B5%AD-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%93%9C-%EC%B9%98%ED%82%A8%EC%9D%98-%ED%83%91-%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%B7%B0-%EA%B0%93-%EC%9A%94%EB%A6%AC%ED%95%98%EB%8A%94-%EB%8F%99%EC%95%88-%EC%8B%9D%EC%9A%95%EC%9D%84-%EB%8F%8B%EC%9A%B0%EA%B3%A0-%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%A5%BC%EC%9C%84%ED%95%9C-%EA%B3%B5%EA%B0%84.webp?b=1&s=170667a&w=0&k=20&c=ENTeBL1B9fUN43kjOOoeQA1sAGyR-LGjOv6LLlc39jk=',
         title: '굽네치킨 삼산점',
         deliveryTime: '40~60분',
@@ -91,7 +91,7 @@ export const stoteList = [
         deliveryTip: 3000,
       },
       {
-        link: '/4',
+        link: 'gcova',
         img: 'https://media.istockphoto.com/id/1464933637/ko/%EC%82%AC%EC%A7%84/%ED%95%9C%EA%B5%AD-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%93%9C-%EC%B9%98%ED%82%A8%EC%9D%98-%ED%83%91-%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%B7%B0-%EA%B0%93-%EC%9A%94%EB%A6%AC%ED%95%98%EB%8A%94-%EB%8F%99%EC%95%88-%EC%8B%9D%EC%9A%95%EC%9D%84-%EB%8F%8B%EC%9A%B0%EA%B3%A0-%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%A5%BC%EC%9C%84%ED%95%9C-%EA%B3%B5%EA%B0%84.webp?b=1&s=170667a&w=0&k=20&c=ENTeBL1B9fUN43kjOOoeQA1sAGyR-LGjOv6LLlc39jk=',
         title: '지코바 삼산점',
         deliveryTime: '40~60분',
@@ -99,7 +99,7 @@ export const stoteList = [
         deliveryTip: 3000,
       },
       {
-        link: '/4',
+        link: 'puradak',
         img: 'https://media.istockphoto.com/id/1464933637/ko/%EC%82%AC%EC%A7%84/%ED%95%9C%EA%B5%AD-%ED%94%84%EB%9D%BC%EC%9D%B4%EB%93%9C-%EC%B9%98%ED%82%A8%EC%9D%98-%ED%83%91-%ED%85%8C%EC%9D%B4%EB%B8%94-%EB%B7%B0-%EA%B0%93-%EC%9A%94%EB%A6%AC%ED%95%98%EB%8A%94-%EB%8F%99%EC%95%88-%EC%8B%9D%EC%9A%95%EC%9D%84-%EB%8F%8B%EC%9A%B0%EA%B3%A0-%ED%85%8D%EC%8A%A4%ED%8A%B8%EB%A5%BC%EC%9C%84%ED%95%9C-%EA%B3%B5%EA%B0%84.webp?b=1&s=170667a&w=0&k=20&c=ENTeBL1B9fUN43kjOOoeQA1sAGyR-LGjOv6LLlc39jk=',
         title: '푸라닭 삼산점',
         deliveryTime: '40~60분',
@@ -427,12 +427,13 @@ interface StoreListsProps {
 }
 const StoreLists = ({ size }: StoreListsProps) => {
   const footerRef = useRef<HTMLDivElement>(null);
-  const { id } = useParams();
-  const [list, setList] = useState(stoteList.find(item => item.category === id)?.item || []);
+  const { storeList } = useParams();
+
+  const [list, setList] = useState(stoteList.find(item => item.category === storeList)?.item || []);
 
   const getNextData = () => {
     setList(prev => {
-      const newData = stoteList?.find(item => item?.category === id)?.item;
+      const newData = stoteList?.find(item => item?.category === storeList)?.item;
       return newData ? [...prev, ...newData] : prev;
     });
   };

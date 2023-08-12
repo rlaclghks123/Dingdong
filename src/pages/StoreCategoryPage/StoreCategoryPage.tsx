@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { css } from '@emotion/react';
 
 import Layout from '../../layouts/Layout';
-import { headerLeftData, headerRightData, sortList } from '../DeliveryPage/DeliveryPage';
+import { sortList } from '../DeliveryPage/DeliveryPage';
 import MainHeader from '../../components/header/MainHeader/MainHeader';
 import SortTag from '../../components/main/SortTag/SortTag';
 import SortModal from '../../components/Modal/SortModal';
@@ -34,7 +34,7 @@ const StoreCategory = () => {
     <div css={Wrapper(isClicked)}>
       <Layout>
         <div css={HeaderBox}>
-          <MainHeader leftItem={headerLeftData} rightItem={headerRightData} />
+          <MainHeader />
           <SortTag setIsClicked={setIsClicked} />
         </div>
         <div css={MainBox}>

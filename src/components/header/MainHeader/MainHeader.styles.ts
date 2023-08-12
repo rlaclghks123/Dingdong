@@ -25,8 +25,8 @@ export const Box = css`
 
 export const Layout = css`
   position: relative;
-  margin: 0px 8px;
   text-decoration: none;
+  display: flex;
 
   svg {
     font-size: 24px;
@@ -37,5 +37,9 @@ export const Layout = css`
     font-size: 24px;
     font-weight: 800;
     color: ${theme.grey400};
+  }
+
+  span {
+    margin: 0px 8px;
   }
 `;
