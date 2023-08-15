@@ -27,19 +27,19 @@ export const Layout = css`
   position: relative;
   text-decoration: none;
   display: flex;
+`;
+
+export const Span = css`
+  margin: 0px 8px;
 
   svg {
     font-size: 24px;
     fill: ${theme.grey400};
   }
+`;
 
-  h1 {
-    font-size: 24px;
-    font-weight: 800;
-    color: ${theme.grey400};
-  }
-
-  span {
-    margin: 0px 8px;
-  }
+export const H1 = css`
+  font-size: 24px;
+  font-weight: 800;
+  color: ${theme.grey400};
 `;
