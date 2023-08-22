@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import commonStyle from '../../../styles/common';
+import theme from '../../../styles/theme';
 
 export const Wrapper = css`
-  position: relative;
   margin: ${commonStyle.boxSideMargin};
 `;
 
@@ -12,9 +12,18 @@ export const Input = css`
   border-radius: 16px;
 `;
 
-export const Button = css`
-  position: absolute;
-  right: 24px;
-  top: 50%;
-  bottom: 50%;
+export const DropDownBox = css`
+  margin: -10px auto;
+  padding-top: 10px;
+  background-color: white;
+  height: 100px;
+`;
+
+export const DropDownItem = css`
+  padding: 0 16px;
+
+  &.selected {
+    cursor: pointer;
+    background-color: ${theme.grey200};
+  }
 `;
