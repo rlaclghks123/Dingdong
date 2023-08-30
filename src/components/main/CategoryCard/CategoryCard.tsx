@@ -1,20 +1,22 @@
 import { Wrapper, Title, Contents } from './CategoryCard.style';
 
-interface ICategory {
+interface Props {
   title: string;
   contents: string[];
 }
 
-const CategoryCard = ({ title, contents }: ICategory) => {
+const CategoryCard = ({ title, contents }: Props) => {
   return (
-    <section css={Wrapper}>
+    <div css={Wrapper}>
       <div css={Title}>{title}</div>
-      <div css={Contents}>
-        {contents.map((item, i) => {
-          return <p key={i}>{item}</p>;
-        })}
-      </div>
-    </section>
+      {contents.map((item, i) => {
+        return (
+          <p css={Contents} key={`${item}-${i}`}>
+            {item}
+          </p>
+        );
+      })}
+    </div>
   );
 };
 export default CategoryCard;

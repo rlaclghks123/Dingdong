@@ -8,16 +8,16 @@ interface CategoryItem {
   contents: string[];
 }
 
-interface CategoryListProps {
+interface Props {
   category: CategoryItem[];
 }
 
-const CategoryList = ({ category }: CategoryListProps) => {
+const CategoryList = ({ category }: Props) => {
   return (
     <section css={Wrapper}>
-      {category.map((item, i) => {
+      {category.map(item => {
         return (
-          <Link to={item.link} key={i}>
+          <Link to={item.link} key={item.link}>
             <CategoryCard title={item.title} contents={item.contents} />
           </Link>
         );

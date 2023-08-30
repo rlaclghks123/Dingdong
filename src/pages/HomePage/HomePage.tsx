@@ -112,11 +112,9 @@ const MainPage = () => {
   return (
     <Layout>
       <MainHeader rightData={HEADER_RIGHT_DATA} />
-      <div>
-        <SearchBar />
-        <CategoryList category={category} />
-        <CurrentOrder />
-      </div>
+      <SearchBar />
+      <CategoryList category={category} />
+      <CurrentOrder />
 
       <Nav />
     </Layout>
