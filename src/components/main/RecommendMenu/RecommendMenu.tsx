@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import UseDrag from '../../../hooks/UseDrag';
+import UseDrag from '../../../hooks/useDrag';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
 import { itemList } from '../../../pages/DeliveryPage/DeliveryPage';
 import { itemGapObj, itemWidthObj } from '../../../constants/itemConstatns';

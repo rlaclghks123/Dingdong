@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import UseDrag from '../../../hooks/UseDrag';
+import useDrag from '../../../hooks/useDrag';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
 import { itemWidthObj } from '../../../constants/itemConstatns';
 import { itemList } from '../../../pages/DeliveryPage/DeliveryPage';
@@ -11,7 +11,7 @@ const Banner = () => {
   const navigate = useNavigate();
   const [itemLists, setItemLists] = useState(itemList);
 
-  const { carouselItemsRef, isDragging, isMobile, startPosition, endPosition } = UseDrag({
+  const { carouselItemsRef, isDragging, isMobile, startPosition, endPosition } = useDrag({
     items: itemLists,
     itemWidth: itemWidthObj.banner,
     autoPlay: true,

@@ -1,22 +1,30 @@
 import { useRef, useState, useEffect } from 'react';
-import { Item } from '../pages/HomePage/HomePage';
+import { CreateShopListDataResponse } from '../mocks/data/dingdongWorld';
 
 interface CarouselProps {
-  items: Item[];
+  items: CreateShopListDataResponse[];
   itemWidth: number;
+  isLoading: boolean;
   itemGap?: number;
   autoPlay?: boolean;
   autoPlayDuration?: number;
 }
 
-const UseDrag = ({ items, itemWidth, itemGap = 0, autoPlay = false, autoPlayDuration = 3000 }: CarouselProps) => {
+const useDrag = ({
+  items,
+  itemWidth,
+  isLoading = false,
+  itemGap = 0,
+  autoPlay = false,
+  autoPlayDuration = 3000,
+}: CarouselProps) => {
   const carouselItemsRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
   const [endPosition, setEndPosition] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  const minPosition = -(itemWidth * items.length + itemGap * (items.length - 1)) + itemWidth;
+  const minPosition = items ? -(itemWidth * items.length + itemGap * (items.length - 1)) + itemWidth : 0;
   const maxPosition = 0;
 
   const moveTowardX = (movedDistance: number) => {
@@ -44,24 +52,6 @@ const UseDrag = ({ items, itemWidth, itemGap = 0, autoPlay = false, autoPlayDura
     setIsDragging(false);
   };
 
-  useEffect(() => {
-    const carouselItems = carouselItemsRef.current;
-
-    carouselItems?.addEventListener('mousedown', handleMouseDown);
-    window?.addEventListener('mousemove', handleMouseMove);
-    window?.addEventListener('mouseup', handleMouseUp);
-
-    return () => {
-      carouselItems?.removeEventListener('mousedown', handleMouseDown);
-      window?.removeEventListener('mousemove', handleMouseMove);
-      window?.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, [isDragging]);
-
-  useEffect(() => {
-    /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? setIsMobile(true) : setIsMobile(false);
-  }, []);
-
   const autoScroll = () => {
     if (!isDragging) {
       const movedDistance = moveTowardX(endPosition - itemWidth - itemGap);
@@ -71,7 +61,24 @@ const UseDrag = ({ items, itemWidth, itemGap = 0, autoPlay = false, autoPlayDura
   };
 
   useEffect(() => {
-    let interval: number;
+    const carouselItems = carouselItemsRef.current;
+    carouselItems?.addEventListener('mousedown', handleMouseDown);
+    window?.addEventListener('mousemove', handleMouseMove);
+    window?.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      carouselItems?.removeEventListener('mousedown', handleMouseDown);
+      window?.removeEventListener('mousemove', handleMouseMove);
+      window?.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging, isLoading]);
+
+  useEffect(() => {
+    /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? setIsMobile(true) : setIsMobile(false);
+  }, []);
+
+  useEffect(() => {
+    let interval: NodeJS.Timer;
     if (autoPlay) interval = setInterval(autoScroll, autoPlayDuration);
     return () => clearInterval(interval);
   }, [isDragging, endPosition]);
@@ -79,4 +86,4 @@ const UseDrag = ({ items, itemWidth, itemGap = 0, autoPlay = false, autoPlayDura
   return { carouselItemsRef, isDragging, isMobile, startPosition, endPosition };
 };
 
-export default UseDrag;
+export default useDrag;
