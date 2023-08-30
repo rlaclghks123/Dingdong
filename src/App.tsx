@@ -4,6 +4,7 @@ import DeleveryPage from './pages/DeliveryPage/DeliveryPage';
 import StoreCategoryPage from './pages/StoreCategoryPage/StoreCategoryPage';
 import ScrollToTop from './components/common/ScrollToTop/ScrollToTop.tsx';
 import StoreIntroducePage from './pages/StoreIntroducePage/StoreIntroducePage.tsx';
+import PreparationPage from './pages/PreparationPage/PreparationPage.tsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path={'/delivery'} element={<DeleveryPage />} />
         <Route path={'/delivery/caterory/:storeList'} element={<StoreCategoryPage />} />
         <Route path={'/delivery/caterory/:storeList/:storeName'} element={<StoreIntroducePage />} />
+        <Route path={'/*'} element={<PreparationPage />}></Route>
       </Routes>
     </Router>
   );
