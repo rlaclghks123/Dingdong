@@ -4,16 +4,14 @@ import { css } from '@emotion/react';
 export const Wrapper = css`
   display: flex;
   align-items: center;
-  width: 100%;
+  height: inherit;
   backdrop-filter: blur(8px);
-  padding: 16px 0px;
+  padding: 0px 16px;
 `;
 
 export const Box = css`
   display: flex;
   align-items: center;
-
-  margin: 0px 8px;
 
   width: 100%;
   height: 100%;
@@ -23,23 +21,20 @@ export const Box = css`
   }
 `;
 
-export const Layout = css`
-  position: relative;
-  text-decoration: none;
-  display: flex;
-`;
-
 export const Span = css`
-  margin: 0px 8px;
-
-  svg {
-    font-size: 24px;
-    fill: ${theme.grey400};
+  &:last-child {
+    margin-left: 8px;
   }
 `;
 
 export const H1 = css`
   font-size: 24px;
   font-weight: 800;
-  color: ${theme.grey400};
+  color: ${theme.grey700};
+`;
+
+export const Icon = css`
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
 `;

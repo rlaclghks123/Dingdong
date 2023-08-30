@@ -5,6 +5,8 @@ import CategoryList from '../../components/main/CategoryList/CategoryList';
 import CurrentOrder from '../../components/main/CurrentOrder/CurrentOrder';
 import Layout from '../../layouts/Layout';
 import { ReactNode } from 'react';
+import bellIcon from '../../assets/headerIcon/bell-svgrepo-com.svg';
+import cartIcon from '../../assets/headerIcon/cart-large-minimalistic-svgrepo-com.svg';
 
 export interface Item {
   title: string;
@@ -20,6 +22,17 @@ export interface HeaderItem {
   icon?: ReactNode;
   title?: string;
 }
+
+const HEADER_RIGHT_DATA = [
+  {
+    link: '/3',
+    svgSrc: bellIcon,
+  },
+  {
+    link: '/4',
+    svgSrc: cartIcon,
+  },
+];
 
 const category = [
   {
@@ -98,7 +111,7 @@ export const mainItems: Item[] = [
 const MainPage = () => {
   return (
     <Layout>
-      <MainHeader />
+      <MainHeader rightData={HEADER_RIGHT_DATA} />
       <div>
         <SearchBar />
         <CategoryList category={category} />

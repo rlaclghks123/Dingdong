@@ -8,19 +8,18 @@ export const Wrapper = css`
 
 export const LayoutBox = css`
   width: 100%;
-  max-width: ${commonStyle.maxWidth};
+  max-width: ${commonStyle.width};
   margin-bottom: 60px;
 `;
 
 export const Header = css`
   position: fixed;
   top: 0px;
-  width: ${commonStyle.maxWidth};
+  width: ${commonStyle.width};
+  height: 65px;
   z-index: 99;
 `;
 
 export const Main = css`
-  display: flex;
-  flex-direction: column;
   margin-top: 65px;
 `;

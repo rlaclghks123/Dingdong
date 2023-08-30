@@ -1,5 +1,5 @@
 const commonStyle = {
-  maxWidth: '360px',
+  width: '360px',
 
   boxSideMargin: '0px 16px',
   boxUpAndDownMargin: '16px 0px',
