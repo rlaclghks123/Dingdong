@@ -1,52 +1,14 @@
-import { flexBoxRow } from '../../../styles/mixins';
-import theme from '../../../styles/theme';
-import commonStyle from '../../../styles/common';
 import { css } from '@emotion/react';
+import theme from '../../../styles/theme';
 
 export const Wrapper = css`
   padding: 8px;
+  margin: 16px;
 
   background-color: ${theme.white};
-  margin: ${commonStyle.boxFullMargin};
 `;
 
-export const Header = css`
+export const DragDirectionBox = (itemGap: number) => css`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 8px 0px;
-
-  a {
-    color: black;
-    text-decoration: none;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-
-    strong {
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    span {
-      margin-right: 4px;
-    }
-  }
-`;
-
-export const TooltipBox = css`
-  ${flexBoxRow};
-  padding: 2px;
-
-  width: 12px;
-  height: 12px;
-
-  font-size: 8px;
-
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 1);
-
-  background-color: ${theme.white};
+  gap: ${itemGap | 0}px;
 `;
