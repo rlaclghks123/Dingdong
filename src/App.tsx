@@ -11,9 +11,9 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path={'/'} element={<HomePage />} />
-        <Route path={'/:deliveryType'} element={<DeleveryPage />} />
-        <Route path={'/:deliveryType/caterory/:storeList'} element={<StoreCategoryPage />} />
-        <Route path={'/:deliveryType/caterory/:storeList/:storeName'} element={<StoreIntroducePage />} />
+        <Route path={'/delivery'} element={<DeleveryPage />} />
+        <Route path={'/delivery/caterory/:storeList'} element={<StoreCategoryPage />} />
+        <Route path={'/delivery/caterory/:storeList/:storeName'} element={<StoreIntroducePage />} />
       </Routes>
     </Router>
   );
