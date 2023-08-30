@@ -6,43 +6,37 @@ export const Wrapper = css`
   position: fixed;
   bottom: 0px;
 
-  width: 360px;
-  padding: ${commonStyle.boxUpAndDownPadding};
+  padding: 16px 0px;
   border-radius: 16px 16px 0px 0px;
   border: 1px solid ${theme.grey200};
+
+  width: ${commonStyle.width};
   background-color: ${theme.grey100};
 `;
 
-export const UlBox = css`
-  background-color: ${theme.grey100};
+export const Ul = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  width: 100%;
-  height: 100%;
 `;
 
-export const Item = css`
+export const Li = css`
   width: 100%;
-  height: 100%;
+  color: ${theme.grey700};
+`;
 
-  a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 8px;
-    text-decoration: none;
-    color: ${theme.grey500};
-  }
+export const LinkStyle = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Icon = css`
-  svg {
-    fill: ${theme.grey400};
-  }
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  margin-bottom: 4px;
 `;
 
 export const Content = css`
