@@ -1,17 +1,21 @@
 import { useState } from 'react';
 
 import Layout from '../../layouts/Layout';
-import { HeaderItem, Item } from '../HomePage/HomePage.tsx';
+import { HeaderItem } from '../HomePage/HomePage.tsx';
 import MainHeader from '../../components/header/MainHeader/MainHeader';
-import AddressBox from '../../components/main/AddresBox/AddressBox';
 import Banner from '../../components/main/Banner/Banner';
 import MenuCategory from '../../components/main/MenuCategory/MenuCategory';
 import RecommendMenu from '../../components/main/RecommendMenu/RecommendMenu';
 import SortTag from '../../components/main/SortTag/SortTag';
-import StoreLists, { storeListSizes } from '../../components/main/StoreLists/StoreLists';
 import Nav from '../../components/nav/Nav';
 import SortModal from '../../components/Modal/SortModal';
 import { Wrapper, WhiteBox, SortContainer } from './DeliveryPage.style.ts';
+import ShopLists from '../../components/main/ShopLists/ShopLists.tsx';
+import { SHOP_LIST_ITEM_SIZE } from '../../components/main/CurrentOrder/CurrentOrder.tsx';
+
+export interface SortProps {
+  title: string;
+}
 
 export const headerLeftData: HeaderItem[] = [
   {
@@ -47,7 +51,7 @@ export const headerRightData: HeaderItem[] = [
   },
 ];
 
-export const itemList: Item[] = [
+export const itemList = [
   {
     link: '/1',
     img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQyfHwlRUMlOUQlOEMlRUMlOEIlOUR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
@@ -281,7 +285,7 @@ export const menuItems = [
   },
 ];
 
-export const sortList: Item[] = [
+export const sortList: SortProps[] = [
   { title: '기본순' },
   { title: '배달팁' },
   { title: '이름순' },
@@ -297,20 +301,16 @@ const DeleveryPage = () => {
     <div css={Wrapper(isClicked)}>
       <Layout>
         <MainHeader />
-        <div>
-          <AddressBox />
 
-          <Banner />
+        <Banner />
+        <div css={WhiteBox}>
+          <RecommendMenu />
+          <MenuCategory />
+        </div>
 
-          <div css={WhiteBox}>
-            <RecommendMenu />
-            <MenuCategory />
-          </div>
-
-          <div css={SortContainer}>
-            <SortTag setIsClicked={setIsClicked} />
-            <StoreLists size={storeListSizes.large} />
-          </div>
+        <div css={SortContainer}>
+          <SortTag sortList={sortList} setIsClicked={setIsClicked} />
+          <ShopLists size={SHOP_LIST_ITEM_SIZE.large} />
         </div>
         <Nav />
       </Layout>

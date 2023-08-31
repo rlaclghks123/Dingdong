@@ -3,7 +3,7 @@ export const itemWidthObj = {
   banner: 360,
   recommendMenu: 100,
   sortTag: 70,
-  storeLists: 332,
+  shopList: 332,
   StoreCategory: 332,
 };
 
