@@ -1,38 +1,54 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import UseDrag from '../../../hooks/useDrag';
+import useDrag from '../../../hooks/useDrag';
+import useGetShopList from '../../../hooks/useGetShopList';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
-import { itemList } from '../../../pages/DeliveryPage/DeliveryPage';
+
 import { itemGapObj, itemWidthObj } from '../../../constants/itemConstatns';
 import { Wrapper, Button, TitleBox } from './RecommendMenu.style';
+import { CreateShopListDataResponse } from '../../../mocks/data/dingdongWorld';
 
 const RecommendMenu = () => {
   const navigate = useNavigate();
-  const [itemLists, setItemLists] = useState(itemList);
+  const { data, isLoading, isError } = useGetShopList();
 
-  const { carouselItemsRef, isMobile, isDragging, startPosition } = UseDrag({
-    items: itemLists,
+  const { carouselItemsRef, isMobile, isDragging, startPosition } = useDrag({
+    items: data,
+    isLoading,
     itemWidth: itemWidthObj.recommendMenu,
     itemGap: itemGapObj.recommendMenu,
   });
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (startPosition === e.clientX) navigate(itemLists[Number(e.currentTarget.dataset.id)].link || '');
+    if (startPosition === e.clientX)
+      navigate(
+        `/delivery/category/${data[Number(e.currentTarget.dataset.id)].info.title}/${
+          data[Number(e.currentTarget.dataset.id)].uid || ''
+        }`
+      );
   };
 
   return (
-    <DragCarousel isMobile={isMobile} carouselItemsRef={carouselItemsRef} isDragging={isDragging}>
-      <div css={Wrapper(itemGapObj.recommendMenu)}>
-        {itemLists.map((item, index) => (
-          <div key={index}>
-            <button css={Button(item.img || '', itemWidthObj.recommendMenu)} onClick={handleClick} data-id={index}>
-              <span css={TitleBox}>{item.title}</span>
-            </button>
+    <>
+      {isLoading && <div>로딩중..</div>}
+      {!isLoading && (
+        <DragCarousel isMobile={isMobile} carouselItemsRef={carouselItemsRef} isDragging={isDragging}>
+          <div css={Wrapper(itemGapObj.recommendMenu)}>
+            {data?.map((item: CreateShopListDataResponse, index: number) => (
+              <div key={item.uid}>
+                <button
+                  css={Button(item.info.image || '', itemWidthObj.recommendMenu)}
+                  onClick={handleClick}
+                  data-id={index}
+                >
+                  <span css={TitleBox}>{item.info.title}</span>
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </DragCarousel>
+        </DragCarousel>
+      )}
+    </>
   );
 };
 
