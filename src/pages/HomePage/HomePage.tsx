@@ -57,57 +57,6 @@ const category = [
   },
 ];
 
-export const mainItems: Item[] = [
-  {
-    link: '/1',
-    img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQyfHwlRUMlOUQlOEMlRUMlOEIlOUR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
-    title: '도넛 삼산점',
-    deliveryTime: '40~60분',
-    star: 5,
-    deliveryTip: 3000,
-  },
-  {
-    link: '/2',
-    img: 'https://images.unsplash.com/photo-1559054663-e8d23213f55c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fCVFQyU5RCU4QyVFQyU4QiU5RHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
-    title: '샌드위치 성남점',
-    deliveryTime: '40~60분',
-    star: 5,
-    deliveryTip: 3000,
-  },
-  {
-    link: '/3',
-    img: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fCVFQyU5RCU4QyVFQyU4QiU5RHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
-    title: '햄버거 무거점',
-    deliveryTime: '40~60분',
-    star: 5,
-    deliveryTip: 3000,
-  },
-  {
-    link: '/4',
-    img: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUVDJTlEJThDJUVDJThCJTlEfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60',
-    title: '팬케이크 태화점 ',
-    deliveryTime: '40~60분',
-    star: 5,
-    deliveryTip: 3000,
-  },
-  {
-    link: '/5',
-    img: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fCVFQyU5RCU4QyVFQyU4QiU5RHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
-    title: '아이스크림 무거점',
-    deliveryTime: '40~60분',
-    star: 5,
-    deliveryTip: 3000,
-  },
-  {
-    link: '/6',
-    img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8JUVDJTlEJThDJUVDJThCJTlEfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60',
-    title: '피자 삼호점',
-    deliveryTime: '40~60분',
-    star: 5,
-    deliveryTip: 3000,
-  },
-];
-
 const MainPage = () => {
   return (
     <Layout>
