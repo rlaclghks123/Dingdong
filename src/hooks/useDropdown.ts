@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const PREVIEW_LIST = [
-  'bhc',
-  'bbq',
   '굽네치킨',
   '지코바 치킨',
   '버거킹',
-  '도미노 피자',
-  '반올림 피자',
+  'bhc',
+  'bbq',
+  'pizza',
+  'pizza hut',
+  'hamburger',
+  '도미노피자',
+  '반올림피자',
   '돈까스',
   '돈치킨',
   '치킨까스',
@@ -27,24 +30,31 @@ const useDropdown = (inputValue: string) => {
       setDropDownList([]);
       return;
     }
+
     const getRelatedKeywordArr = PREVIEW_LIST.filter(
       textItem => textItem.includes(inputValue.toLocaleLowerCase()) || textItem.includes(inputValue.toUpperCase())
     );
+
     setDropDownList(getRelatedKeywordArr);
+    setDropDownItemIndex(-1);
   };
 
-  const handleDropDownKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (inputValue.trim() === '') return;
+  const handleDropDownKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (inputValue.trim() === '' || event.nativeEvent.isComposing) return;
 
-    if (event.key === 'ArrowDown') {
-      dropDownItemIndex === dropDownList.length - 1 ? setDropDownItemIndex(-1) : setDropDownItemIndex(prev => prev + 1);
+    if (event.code === 'ArrowDown') {
+      dropDownItemIndex === dropDownList.length - 1
+        ? setDropDownItemIndex(-1)
+        : setDropDownItemIndex(dropDownItemIndex + 1);
     }
 
-    if (event.key === 'ArrowUp') {
-      dropDownItemIndex === -1 ? setDropDownItemIndex(dropDownList.length - 1) : setDropDownItemIndex(prev => prev - 1);
+    if (event.code === 'ArrowUp') {
+      dropDownItemIndex === -1
+        ? setDropDownItemIndex(dropDownList.length - 1)
+        : setDropDownItemIndex(dropDownItemIndex - 1);
     }
 
-    if (event.key === 'Enter') {
+    if (event.code === 'Enter') {
       let keyword = dropDownList[dropDownItemIndex] ? dropDownList[dropDownItemIndex] : inputValue;
       if (keyword.trim() === '') return;
       navigate(`/search?keyword=${keyword}`);
@@ -73,7 +83,7 @@ const useDropdown = (inputValue: string) => {
 
   return {
     handleClickDropDownList,
-    handleDropDownKeyUp,
+    handleDropDownKeyDown,
     isFocus,
     dropDownList,
     setDropDownItemIndex,

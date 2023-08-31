@@ -35,9 +35,9 @@ const Dropdown = ({ handleClickDropDownList, dropDownList, setDropDownItemIndex,
             key={`${dropDownItem}-${dropDownIndex}`}
             onClick={() => handleClickDropDownList(dropDownItem)}
             onMouseOver={() => setDropDownItemIndex(dropDownIndex)}
-            className={dropDownItemIndex === dropDownIndex ? 'selected' : ''}
+            className={dropDownItemIndex === dropDownIndex ? 'selected' : 'null'}
           >
-            <a>{dropDownItem}</a>
+            {dropDownItem}
           </div>
         );
       })}
