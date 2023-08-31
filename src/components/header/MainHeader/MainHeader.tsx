@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { Wrapper, Box, Span, H1, Icon } from './MainHeader.styles';
+import { Wrapper, Box, Span, H1, Icon, Button, LeftBoxWithBtnStyle } from './MainHeader.styles';
 import logo from '../../../assets/headerIcon/dingdong-logo.svg';
 import backIcon from '../../../assets/headerIcon/back-svgrepo-com.svg';
 
@@ -21,7 +21,7 @@ const SHIPPING_TYPE: { [key: string]: string } = {
 const Header = ({ rightData }: Props) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { storeName } = useParams();
+  const { shopName, shopList } = useParams();
 
   const LeftBoxWithoutBtn = () => {
     return (
@@ -39,17 +39,17 @@ const Header = ({ rightData }: Props) => {
 
   const LeftBoxWithBtn = () => {
     return (
-      <>
-        <button onClick={() => navigate(-1)}>
-          <span css={Span}>
+      <div css={LeftBoxWithBtnStyle}>
+        <span css={Span}>
+          <button css={Button} onClick={() => navigate(-1)}>
             <img css={Icon} src={backIcon} />
-          </span>
-        </button>
+          </button>
+        </span>
 
         <span css={Span}>
-          <h1 css={H1}>{storeName ? storeName : SHIPPING_TYPE[pathname.split('/')[1]] || '준비중'}</h1>
+          <h1 css={H1}>{shopList ? shopList : SHIPPING_TYPE[pathname.split('/')[1]] || '준비중'}</h1>
         </span>
-      </>
+      </div>
     );
   };
 

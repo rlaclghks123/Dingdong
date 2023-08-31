@@ -27,6 +27,18 @@ export const Span = css`
   }
 `;
 
+export const Button = css``;
+
+export const LeftBoxWithBtnStyle = css`
+  display: flex;
+  align-items: center;
+  margin-left: -16px;
+
+  img {
+    margin-top: -3px;
+  }
+`;
+
 export const H1 = css`
   font-size: 24px;
   font-weight: 800;

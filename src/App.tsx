@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path={'/'} element={<HomePage />} />
         <Route path={'/delivery'} element={<DeleveryPage />} />
-        <Route path={'/delivery/caterory/:storeList'} element={<StoreCategoryPage />} />
-        <Route path={'/delivery/caterory/:storeList/:storeName'} element={<StoreIntroducePage />} />
+        <Route path={'/delivery/category/:shopList'} element={<StoreCategoryPage />} />
+        <Route path={'/delivery/category/:shopList/:shopName'} element={<StoreIntroducePage />} />
         <Route path={'/*'} element={<PreparationPage />}></Route>
       </Routes>
     </Router>
