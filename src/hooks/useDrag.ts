@@ -1,10 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
 import { CreateShopListDataResponse } from '../mocks/data/dingdongWorld';
+import { SortProps } from '../pages/DeliveryPage/DeliveryPage';
 
 interface CarouselProps {
-  items: CreateShopListDataResponse[];
+  items: CreateShopListDataResponse[] | SortProps[];
   itemWidth: number;
-  isLoading: boolean;
+  isLoading?: boolean;
   itemGap?: number;
   autoPlay?: boolean;
   autoPlayDuration?: number;
@@ -81,7 +82,7 @@ const useDrag = ({
     let interval: NodeJS.Timer;
     if (autoPlay) interval = setInterval(autoScroll, autoPlayDuration);
     return () => clearInterval(interval);
-  }, [isDragging, endPosition]);
+  }, [isDragging, endPosition, isLoading]);
 
   return { carouselItemsRef, isDragging, isMobile, startPosition, endPosition };
 };

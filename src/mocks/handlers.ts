@@ -25,7 +25,7 @@ export function handlers() {
   ];
 }
 
-const createShopList = (_, res, ctx) => {
+const createShopList: RestGetParams = (_, res, ctx) => {
   const storesDataResponse = createShopListDataResponse();
 
   return res(ctx.json(storesDataResponse));
