@@ -1,8 +1,8 @@
-import { Item } from '../../pages/HomePage/HomePage';
+import { SortProps } from '../../pages/DeliveryPage/DeliveryPage';
 import { ModalDarkBgWrapper, ModalContentsBox, ModalTitle, ModalUl, CloseBtn } from './SortModal.style';
 
 interface SortModalProps {
-  sortList: Item[];
+  sortList: SortProps[];
   setIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 

@@ -24,7 +24,7 @@ export const ModalContentsBox = css`
   transform: translate(-50%, 0%);
   z-index: 9999;
 
-  width: ${commonStyle.maxWidth};
+  width: ${commonStyle.width};
   height: 70%;
 
   background-color: white;
