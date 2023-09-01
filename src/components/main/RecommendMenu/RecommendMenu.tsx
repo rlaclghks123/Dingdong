@@ -20,12 +20,7 @@ const RecommendMenu = () => {
   });
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (startPosition === e.clientX)
-      navigate(
-        `/delivery/category/${data[Number(e.currentTarget.dataset.id)].info.title}/${
-          data[Number(e.currentTarget.dataset.id)].uid || ''
-        }`
-      );
+    if (startPosition === e.clientX) navigate(`/brands/${data[Number(e.currentTarget.dataset.id)].info.title}`);
   };
 
   return (

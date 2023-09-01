@@ -27,7 +27,7 @@ const ShopListsItem = ({ items, itemWidth, size, carouselItemsRef, startPosition
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const itemId = Number(e.currentTarget.dataset.id);
     if (carouselItemsRef && startPosition !== e.clientX) return;
-    navigate(`/delivery/category/${items[itemId].info.title}/${items[itemId].uid || ''}`);
+    navigate(`/brands/${items[itemId].info.title}`);
   };
 
   return (

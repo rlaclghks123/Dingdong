@@ -47,7 +47,11 @@ const Header = ({ rightData }: Props) => {
         </span>
 
         <span css={Span}>
-          <h1 css={H1}>{shopList ? shopList : SHIPPING_TYPE[pathname.split('/')[1]] || '준비중'}</h1>
+          {shopName ? (
+            <h1 css={H1}>{shopName}</h1>
+          ) : (
+            <h1 css={H1}>{shopList ? shopList : SHIPPING_TYPE[pathname.split('/')[1]] || '준비중'}</h1>
+          )}
         </span>
       </div>
     );

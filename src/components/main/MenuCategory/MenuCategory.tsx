@@ -14,7 +14,7 @@ const MenuCategory = () => {
         <div css={MenuCategoryBox}>
           {data?.map((item: CreateFoodCategoriesDataResponse) => (
             <div css={MenuItemBox} key={item.uid}>
-              <Link css={LinkBox} to={`/delivery/category/${item.title}`}>
+              <Link css={LinkBox} to={`/category/${item.title}`}>
                 <span dangerouslySetInnerHTML={{ __html: item.SVG }} />
                 <span css={Name}>{item.title}</span>
               </Link>

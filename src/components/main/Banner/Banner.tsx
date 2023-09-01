@@ -23,12 +23,7 @@ const Banner = () => {
   const slideIndicator = data ? `${Math.floor(-endPosition / itemWidthObj.banner) + 1} / ${data.length}` : '0';
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (startPosition === e.clientX)
-      navigate(
-        `/delivery/category/${data[Number(e.currentTarget.dataset.id)].info.title}/${
-          data[Number(e.currentTarget.dataset.id)].uid || ''
-        }`
-      );
+    if (startPosition === e.clientX) navigate(`/brands/${data[Number(e.currentTarget.dataset.id)].info.title}`);
   };
 
   return (

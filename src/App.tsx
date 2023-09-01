@@ -13,8 +13,9 @@ function App() {
       <Routes>
         <Route path={'/'} element={<HomePage />} />
         <Route path={'/delivery'} element={<DeleveryPage />} />
-        <Route path={'/delivery/category/:shopList'} element={<ShopCategoryPage />} />
-        <Route path={'/delivery/category/:shopList/:shopName'} element={<ShopDetailPage />} />
+        <Route path={'/category/:shopList'} element={<ShopCategoryPage />} />
+        <Route path={'/:brands/:shopName'} element={<ShopDetailPage />} />
+        <Route path={'/detail/:id'} element={<div>하이</div>} />
         <Route path={'/*'} element={<PreparationPage />}></Route>
       </Routes>
     </Router>
