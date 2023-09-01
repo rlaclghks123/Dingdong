@@ -1,5 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 
+interface MenuDetailData {
+  uid: string;
+  img: string;
+  title: string;
+  price: number;
+  point: number;
+}
+
 interface ShopListData {
   name: string;
   title: string;
@@ -8,6 +16,7 @@ interface ShopListData {
   deliveryFee: number;
   rate: number;
   packaging: boolean;
+  detail: MenuDetailData;
 }
 
 export interface CreateFoodCategoriesDataResponse {
@@ -45,6 +54,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 0.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -58,6 +74,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2000,
       rate: 3.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1645371958635-88dd6c8e1be7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fCVFQyVCOSU5OCVFRCU4MiVBOCVFQyU5QyU5OXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        title: '자메이카 소떡만나치킨 + 콜라 1.25L',
+        price: 26500,
+        point: 750,
+      },
     },
   },
   {
@@ -71,6 +94,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2000,
       rate: 5.0,
       packaging: false,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1518492104633-130d0cc84637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAzfHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브반반 + 황금알치즈볼',
+        price: 26000,
+        point: 725,
+      },
     },
   },
   {
@@ -84,6 +114,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 4.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1633945488458-f8cc1f3a0144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fCVFRCU5QiU4NCVFQiU5RCVCQyVFQyU5RCVCNCVFQiU5MyU5QyUyMCVFQyVCOSU5OCVFRCU4MiVBOHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브반반 + 콜라 1.25L',
+        price: 23500,
+        point: 725,
+      },
     },
   },
   {
@@ -97,6 +134,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2000,
       rate: 0.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1626082922482-ac8aa1f5c3c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fCVFRCU5QiU4NCVFQiU5RCVCQyVFQyU5RCVCNCVFQiU5MyU5QyUyMCVFQyVCOSU5OCVFRCU4MiVBOHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 콜라 1.25L',
+        price: 22500,
+        point: 675,
+      },
     },
   },
   {
@@ -110,6 +154,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 4.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1633945488458-f8cc1f3a0144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fCVFRCU5QiU4NCVFQiU5RCVCQyVFQyU5RCVCNCVFQiU5MyU5QyUyMCVFQyVCOSU5OCVFRCU4MiVBOHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브반반 + 콜라 1.25L',
+        price: 23500,
+        point: 725,
+      },
     },
   },
   {
@@ -123,6 +174,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 3.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1645371958635-88dd6c8e1be7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fCVFQyVCOSU5OCVFRCU4MiVBOCVFQyU5QyU5OXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        title: '자메이카 소떡만나치킨 + 콜라 1.25L',
+        price: 26500,
+        point: 750,
+      },
     },
   },
   {
@@ -136,6 +194,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 4.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1518492104633-130d0cc84637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAzfHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브반반 + 황금알치즈볼',
+        price: 26000,
+        point: 725,
+      },
     },
   },
   {
@@ -149,6 +214,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 4000,
       rate: 0.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1518492104633-130d0cc84637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAzfHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브반반 + 황금알치즈볼',
+        price: 26000,
+        point: 725,
+      },
     },
   },
   {
@@ -162,6 +234,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 5.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1626082922482-ac8aa1f5c3c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fCVFRCU5QiU4NCVFQiU5RCVCQyVFQyU5RCVCNCVFQiU5MyU5QyUyMCVFQyVCOSU5OCVFRCU4MiVBOHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 콜라 1.25L',
+        price: 22500,
+        point: 675,
+      },
     },
   },
   {
@@ -175,6 +254,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 4000,
       rate: 5.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1633945488458-f8cc1f3a0144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fCVFRCU5QiU4NCVFQiU5RCVCQyVFQyU5RCVCNCVFQiU5MyU5QyUyMCVFQyVCOSU5OCVFRCU4MiVBOHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브반반 + 콜라 1.25L',
+        price: 23500,
+        point: 725,
+      },
     },
   },
   {
@@ -188,6 +274,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2000,
       rate: 4.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1645371958635-88dd6c8e1be7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fCVFQyVCOSU5OCVFRCU4MiVBOCVFQyU5QyU5OXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        title: '자메이카 소떡만나치킨 + 콜라 1.25L',
+        price: 26500,
+        point: 750,
+      },
     },
   },
   {
@@ -201,6 +294,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 4000,
       rate: 4.0,
       packaging: false,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1518492104633-130d0cc84637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAzfHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브반반 + 황금알치즈볼',
+        price: 26000,
+        point: 725,
+      },
     },
   },
   {
@@ -214,6 +314,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 4.8,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -227,6 +334,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 4.8,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -240,6 +354,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 3.8,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -253,6 +374,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 5.0,
       packaging: false,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -266,6 +394,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 3.8,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -279,6 +414,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 4.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -292,6 +434,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2000,
       rate: 3.8,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -305,6 +454,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 0.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -318,6 +474,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 5.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -331,6 +494,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 4.8,
       packaging: false,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -344,6 +514,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 1.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -357,6 +534,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 1.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -370,6 +554,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 4.9,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -383,6 +574,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 2.0,
       packaging: false,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -396,6 +594,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 4.8,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -409,6 +614,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 4000,
       rate: 4.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -422,6 +634,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2000,
       rate: 1.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -435,6 +654,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 4.3,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -448,6 +674,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 4.3,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -461,6 +694,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 4000,
       rate: 4.8,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -474,6 +714,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 4.0,
       packaging: false,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -487,6 +734,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 3.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -500,6 +754,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 1.0,
       packaging: false,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -513,6 +774,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 0.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -526,6 +794,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 4.0,
       packaging: false,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -539,6 +814,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 3.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -552,6 +834,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 1.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -565,6 +854,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 4000,
       rate: 5.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -578,6 +874,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2000,
       rate: 4.9,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -591,6 +894,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 4.8,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -604,6 +914,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 4.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -617,6 +934,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2500,
       rate: 4.8,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -630,6 +954,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2000,
       rate: 1.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -643,6 +974,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3000,
       rate: 5.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -656,6 +994,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 4000,
       rate: 5.0,
       packaging: false,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -669,6 +1014,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 3500,
       rate: 2.0,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
   {
@@ -682,6 +1034,13 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
       deliveryFee: 2000,
       rate: 1.5,
       packaging: true,
+      detail: {
+        uid: uuidv4(),
+        img: 'https://images.unsplash.com/photo-1580013759032-c96505e24c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ2fHwlRUMlQjklOTglRUQlODIlQTglRUMlOUMlOTl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+        title: '황금올리브치킨 + 크림치즈볼',
+        price: 25000,
+        point: 645,
+      },
     },
   },
 ];
