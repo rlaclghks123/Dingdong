@@ -4,6 +4,7 @@ import theme from '../../../styles/theme';
 export const Wrapper = (itemGap: number) => css`
   display: flex;
   gap: ${itemGap ? `${itemGap}px` : '0px'};
+  margin-top: 8px;
 `;
 
 export const Button = (width: number) => css`
