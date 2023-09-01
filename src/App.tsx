@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage/HomePage';
 import DeleveryPage from './pages/DeliveryPage/DeliveryPage';
 import ShopCategoryPage from './pages/ShopCategoryPage/ShopCategoryPage.tsx';
 import ScrollToTop from './components/common/ScrollToTop/ScrollToTop.tsx';
-import StoreIntroducePage from './pages/StoreIntroducePage/StoreIntroducePage.tsx';
+import ShopDetailPage from './pages/ShopDetailPage/ShopDetailPage.tsx';
 import PreparationPage from './pages/PreparationPage/PreparationPage.tsx';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <Route path={'/'} element={<HomePage />} />
         <Route path={'/delivery'} element={<DeleveryPage />} />
         <Route path={'/delivery/category/:shopList'} element={<ShopCategoryPage />} />
-        <Route path={'/delivery/category/:shopList/:shopName'} element={<StoreIntroducePage />} />
+        <Route path={'/delivery/category/:shopList/:shopName'} element={<ShopDetailPage />} />
         <Route path={'/*'} element={<PreparationPage />}></Route>
       </Routes>
     </Router>
