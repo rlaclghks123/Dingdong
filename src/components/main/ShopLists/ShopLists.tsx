@@ -1,14 +1,12 @@
 import { css } from '@emotion/react';
 
-import commonStyle from '../../../styles/common';
-
 import { itemWidthObj } from '../../../constants/itemConstatns';
 
 import ShopListsItem from '../../common/ShopListsItem/ShopListsItem';
 import useGetShopList from '../../../hooks/useGetShopList';
 
 const Wrapper = css`
-  margin: ${commonStyle.boxFullMargin};
+  margin: 16px;
 `;
 
 const ItmeBox = css`
