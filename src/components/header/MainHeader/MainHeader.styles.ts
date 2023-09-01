@@ -17,6 +17,7 @@ export const Box = css`
   height: 100%;
 
   &:last-child {
+    width: 45%;
     justify-content: flex-end;
   }
 `;
