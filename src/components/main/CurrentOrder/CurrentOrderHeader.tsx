@@ -15,7 +15,7 @@ const CurrentOrderHeader = () => {
       </div>
 
       <div css={HeaderRightBox}>
-        <Link to="/">
+        <Link to="/order-detail">
           <span>주문내역 보기</span>
           <i>
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
