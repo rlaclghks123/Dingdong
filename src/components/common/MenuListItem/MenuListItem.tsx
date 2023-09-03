@@ -17,7 +17,7 @@ const MenuListItem = ({ items, itemWidth, size = 'MEDIUM', carouselItemsRef, sta
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const itemId = Number(e.currentTarget.dataset.id);
     if (carouselItemsRef && startPosition !== e.clientX) return;
-    navigate(`/detail/${items[itemId].info.detail.uid || ''}`);
+    navigate(`/detail/${items[itemId].info.detail.title}/${items[itemId].info.detail.uid}`);
   };
 
   return (

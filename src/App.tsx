@@ -5,6 +5,7 @@ import ShopCategoryPage from './pages/ShopCategoryPage/ShopCategoryPage.tsx';
 import ScrollToTop from './components/common/ScrollToTop/ScrollToTop.tsx';
 import ShopDetailPage from './pages/ShopDetailPage/ShopDetailPage.tsx';
 import PreparationPage from './pages/PreparationPage/PreparationPage.tsx';
+import MenuDetailPage from './pages/MenuDetailPage/MenuDetailPage.tsx';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path={'/delivery'} element={<DeleveryPage />} />
         <Route path={'/category/:shopList'} element={<ShopCategoryPage />} />
         <Route path={'/:brands/:shopName'} element={<ShopDetailPage />} />
-        <Route path={'/detail/:id'} element={<div>하이</div>} />
+        <Route path={'/detail/:menuName/:id'} element={<MenuDetailPage />} />
         <Route path={'/*'} element={<PreparationPage />}></Route>
       </Routes>
     </Router>
