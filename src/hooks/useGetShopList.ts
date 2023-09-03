@@ -3,6 +3,6 @@ import { shopList } from '../api/shopList';
 
 const SHOP_LIST_KEY = 'shotList';
 
-const useGetShopList = () => useQuery(SHOP_LIST_KEY, shopList, { staleTime: 1000 * 60 * 60 * 24 });
+const useGetShopList = () => useQuery(SHOP_LIST_KEY, shopList);
 
 export default useGetShopList;
