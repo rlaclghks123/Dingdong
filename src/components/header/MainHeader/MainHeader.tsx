@@ -21,7 +21,7 @@ const SHIPPING_TYPE: { [key: string]: string } = {
 const Header = ({ rightData }: Props) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { shopName, shopList } = useParams();
+  const { shopName, shopList, menuName } = useParams();
 
   const LeftBoxWithoutBtn = () => {
     return (
@@ -47,9 +47,9 @@ const Header = ({ rightData }: Props) => {
         </span>
 
         <span css={Span}>
-          {shopName ? (
-            <h1 css={H1}>{shopName}</h1>
-          ) : (
+          {shopName && <h1 css={H1}>{shopName}</h1>}
+          {menuName && <h1 css={H1}>{menuName}</h1>}
+          {!shopName && !menuName && (
             <h1 css={H1}>{shopList ? shopList : SHIPPING_TYPE[pathname.split('/')[1]] || '준비중'}</h1>
           )}
         </span>

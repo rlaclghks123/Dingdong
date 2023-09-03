@@ -44,6 +44,10 @@ export const H1 = css`
   font-size: 24px;
   font-weight: 800;
   color: ${theme.grey700};
+  white-space: nowrap;
+  width: 170px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 export const Icon = css`
