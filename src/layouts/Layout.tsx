@@ -1,5 +1,6 @@
-import { Children } from 'react';
+import { Children, Suspense } from 'react';
 import { Wrapper, LayoutBox, Header, Main } from './Layout.styles';
+import LoadingPage from '../pages/LoadingPage/LoadingPage';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -8,12 +9,14 @@ interface LayoutProps {
 const Layout = ({ children: childrenProp }: LayoutProps) => {
   const [header, ...children] = Children.toArray(childrenProp);
   return (
-    <div css={Wrapper}>
-      <div css={LayoutBox}>
-        <header css={Header}>{header}</header>
-        <main css={Main}>{children}</main>
+    <Suspense fallback={<LoadingPage />}>
+      <div css={Wrapper}>
+        <div css={LayoutBox}>
+          <header css={Header}>{header}</header>
+          <main css={Main}>{children}</main>
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 export default Layout;
