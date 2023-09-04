@@ -30,15 +30,15 @@ const Dropdown = ({ handleClickDropDownList, dropDownList, setDropDownItemIndex,
       {dropDownList.length === 0 && <div css={DropDownItem}>해당하는 단어가 없습니다</div>}
       {dropDownList.map((dropDownItem, dropDownIndex) => {
         return (
-          <div
+          <ul
             css={DropDownItem}
             key={`${dropDownItem}-${dropDownIndex}`}
             onClick={() => handleClickDropDownList(dropDownItem)}
             onMouseOver={() => setDropDownItemIndex(dropDownIndex)}
             className={dropDownItemIndex === dropDownIndex ? 'selected' : 'null'}
           >
-            {dropDownItem}
-          </div>
+            <li>{dropDownItem}</li>
+          </ul>
         );
       })}
     </div>
