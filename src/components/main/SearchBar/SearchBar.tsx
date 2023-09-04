@@ -28,6 +28,7 @@ const SearchBar = () => {
   return (
     <form css={Wrapper} data-id={'isInputFocus'} onSubmit={handleSubmit}>
       <input
+        placeholder="테스트를 위해 피자를 입력해주세요"
         css={Input}
         autoComplete="off"
         type="text"
@@ -36,7 +37,6 @@ const SearchBar = () => {
         onChange={changeInputValue}
         onKeyDown={handleDropDownKeyDown}
       />
-
       {isFocus && (
         <Dropdown
           handleClickDropDownList={handleClickDropDownList}
