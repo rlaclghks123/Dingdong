@@ -28,24 +28,21 @@ const Banner = () => {
 
   return (
     <>
-      {isLoading && <div>로딩중..</div>}
-      {!isLoading && (
-        <DragCarousel
-          isMobile={isMobile}
-          carouselItemsRef={carouselItemsRef}
-          isDragging={isDragging}
-          slideIndicator={slideIndicator}
-        >
-          <div css={DragItemWrapper}>
-            {data?.map((item: CreateShopListDataResponse, index: number) => (
-              <button key={item.uid} onClick={handleClick} data-id={index}>
-                <img css={Img(itemWidthObj.banner)} src={item.info.image} alt={`${item.info.title} 사진`} />
-                <span css={TitleBox}>{item.info.title}</span>
-              </button>
-            ))}
-          </div>
-        </DragCarousel>
-      )}
+      <DragCarousel
+        isMobile={isMobile}
+        carouselItemsRef={carouselItemsRef}
+        isDragging={isDragging}
+        slideIndicator={slideIndicator}
+      >
+        <div css={DragItemWrapper}>
+          {data?.map((item: CreateShopListDataResponse, index: number) => (
+            <button key={item.uid} onClick={handleClick} data-id={index}>
+              <img css={Img(itemWidthObj.banner)} src={item.info.image} alt={`${item.info.title} 사진`} />
+              <span css={TitleBox}>{item.info.title}</span>
+            </button>
+          ))}
+        </div>
+      </DragCarousel>
     </>
   );
 };
