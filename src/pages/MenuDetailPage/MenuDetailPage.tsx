@@ -5,7 +5,7 @@ const MenuDetailPage = () => {
   return (
     <Layout>
       <Header />
-      <div>hi</div>
+      <div>현재 개발중입니다.</div>
     </Layout>
   );
 };
