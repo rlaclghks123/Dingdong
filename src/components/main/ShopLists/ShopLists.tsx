@@ -26,7 +26,7 @@ interface ShopListsProps {
   size: string;
 }
 const ShopLists = ({ size }: ShopListsProps) => {
-  const { data, isLoading, isError } = useGetShopList();
+  const { data } = useGetShopList();
 
   return (
     <div css={Wrapper}>

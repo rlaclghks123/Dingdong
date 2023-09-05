@@ -20,7 +20,8 @@ export const SHOP_LIST_ITEM_SIZE = {
 };
 
 const CurrentOrder = () => {
-  const { data, isLoading, isError } = useGetShopList();
+  const { data, isLoading } = useGetShopList();
+
   const { carouselItemsRef, isMobile, isDragging, startPosition } = useDrag({
     items: data,
     itemWidth: SHOP_LIST_ITEM_WIDTH.currentOrder,
@@ -30,23 +31,18 @@ const CurrentOrder = () => {
 
   return (
     <section css={Wrapper}>
-      {isLoading && <div>로딩중...</div>}
-      {!isLoading && (
-        <>
-          <CurrentOrderHeader />
-          <DragCarousel isMobile={isMobile} carouselItemsRef={carouselItemsRef} isDragging={isDragging}>
-            <div css={DragDirectionBox(SHOP_LIST_ITEM_GAP.currentOrder)}>
-              <ShopListsItem
-                items={data}
-                itemWidth={SHOP_LIST_ITEM_WIDTH.currentOrder}
-                size={SHOP_LIST_ITEM_SIZE.medium}
-                carouselItemsRef={carouselItemsRef}
-                startPosition={startPosition}
-              />
-            </div>
-          </DragCarousel>
-        </>
-      )}
+      <CurrentOrderHeader />
+      <DragCarousel isMobile={isMobile} carouselItemsRef={carouselItemsRef} isDragging={isDragging}>
+        <div css={DragDirectionBox(SHOP_LIST_ITEM_GAP.currentOrder)}>
+          <ShopListsItem
+            items={data}
+            itemWidth={SHOP_LIST_ITEM_WIDTH.currentOrder}
+            size={SHOP_LIST_ITEM_SIZE.medium}
+            carouselItemsRef={carouselItemsRef}
+            startPosition={startPosition}
+          />
+        </div>
+      </DragCarousel>
     </section>
   );
 };
