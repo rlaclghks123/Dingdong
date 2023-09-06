@@ -6,6 +6,7 @@ import ScrollToTop from './components/common/ScrollToTop/ScrollToTop.tsx';
 import ShopDetailPage from './pages/ShopDetailPage/ShopDetailPage.tsx';
 import PreparationPage from './pages/PreparationPage/PreparationPage.tsx';
 import MenuDetailPage from './pages/MenuDetailPage/MenuDetailPage.tsx';
+import ErrorPage from './pages/ErrorPage/ErrorPage.tsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path={'/category/:shopList'} element={<ShopCategoryPage />} />
         <Route path={'/:brands/:shopName'} element={<ShopDetailPage />} />
         <Route path={'/detail/:menuName/:id'} element={<MenuDetailPage />} />
+        <Route path={'/404'} element={<ErrorPage />} />
         <Route path={'/*'} element={<PreparationPage />}></Route>
       </Routes>
     </Router>

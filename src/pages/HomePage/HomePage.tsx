@@ -41,12 +41,12 @@ const category = [
     contents: ['세상은 넓고', '맛집은 많다'],
   },
   {
-    link: '/2',
+    link: '/takeout',
     title: '포장',
     contents: ['가까운 가게는', '직접 가지러 가지요'],
   },
   {
-    link: '/3',
+    link: '/404',
     title: 'B마트',
     contents: ['지금 주문하면', '28분 후 도착'],
   },

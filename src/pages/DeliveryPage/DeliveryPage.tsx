@@ -12,6 +12,7 @@ import SortModal from '../../components/Modal/SortModal';
 import { Wrapper, WhiteBox, SortContainer } from './DeliveryPage.style.ts';
 import ShopLists from '../../components/main/ShopLists/ShopLists.tsx';
 import { SHOP_LIST_ITEM_SIZE } from '../../components/main/CurrentOrder/CurrentOrder.tsx';
+import LoadingPage from '../LoadingPage/LoadingPage.tsx';
 
 export interface SortProps {
   title: string;
@@ -297,24 +298,36 @@ export const sortList: SortProps[] = [
 
 const DeleveryPage = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 500);
+
   return (
     <div css={Wrapper(isClicked)}>
-      <Layout>
-        <MainHeader />
+      {isLoading ? (
+        <LoadingPage />
+      ) : (
+        <>
+          <Layout>
+            <MainHeader />
 
-        <Banner />
-        <div css={WhiteBox}>
-          <RecommendMenu />
-          <MenuCategory />
-        </div>
+            <Banner />
+            <div css={WhiteBox}>
+              <RecommendMenu />
+              <MenuCategory />
+            </div>
 
-        <div css={SortContainer}>
-          <SortTag sortList={sortList} setIsClicked={setIsClicked} />
-          <ShopLists size={SHOP_LIST_ITEM_SIZE.large} />
-        </div>
-        <Nav />
-      </Layout>
-      {isClicked && <SortModal sortList={sortList} setIsClicked={setIsClicked} />}
+            <div css={SortContainer}>
+              <SortTag sortList={sortList} setIsClicked={setIsClicked} />
+              <ShopLists size={SHOP_LIST_ITEM_SIZE.large} />
+            </div>
+            <Nav />
+          </Layout>
+          {isClicked && <SortModal sortList={sortList} setIsClicked={setIsClicked} />}
+        </>
+      )}
     </div>
   );
 };

@@ -67,6 +67,7 @@ export const Img = (size: string) => css`
   min-width: ${IMG_VARIANTS[size].imgMinWidth};
   width: ${IMG_VARIANTS[size].imgWidth};
   height: ${IMG_VARIANTS[size].imgHeight};
+  background-color: ${theme.grey200};
 `;
 
 export const DescriptionBox = (size: string) => css`

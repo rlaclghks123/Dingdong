@@ -150,6 +150,7 @@ export const Img = (size: string) => css`
   width: ${IMG_VARIANTS[size].imgWidth};
   height: ${IMG_VARIANTS[size].imgHeight};
   border-radius: ${IMG_VARIANTS[size].imgBorderRadius};
+  background-color: ${theme.grey200};
 `;
 
 const DescriptionBoxDefault = css`

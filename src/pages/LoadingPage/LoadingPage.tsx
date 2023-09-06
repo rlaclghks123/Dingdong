@@ -8,7 +8,7 @@ const spinEffect = keyframes`
   to { transform: rotate(360deg) }
 `;
 
-const Spinner = css`
+export const Spinner = css`
   display: flex;
   justify-content: center;
   align-items: center;

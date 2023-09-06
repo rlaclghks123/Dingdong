@@ -3,7 +3,10 @@ import { css } from '@emotion/react';
 import { itemWidthObj } from '../../../constants/itemConstatns';
 
 import ShopListsItem from '../../common/ShopListsItem/ShopListsItem';
-import useGetShopList from '../../../hooks/useGetShopList';
+// import useGetShopList from '../../../hooks/useGetShopList';
+import { useErrorBoundary } from 'react-error-boundary';
+import { useEffect, useState } from 'react';
+import { CreateShopListDataResponse, createStoresDataResponse } from '../../../mocks/data/dingdongWorld';
 
 const Wrapper = css`
   margin: 16px;
@@ -26,7 +29,21 @@ interface ShopListsProps {
   size: string;
 }
 const ShopLists = ({ size }: ShopListsProps) => {
-  const { data } = useGetShopList();
+  // const { data } = useGetShopList();
+  const { showBoundary } = useErrorBoundary();
+  const [data, setData] = useState<CreateShopListDataResponse[]>(createStoresDataResponse());
+
+  const useGetShopList = async () => {
+    try {
+      setData(createStoresDataResponse());
+    } catch (error) {
+      showBoundary(error);
+    }
+  };
+
+  useEffect(() => {
+    useGetShopList();
+  }, []);
 
   return (
     <div css={Wrapper}>

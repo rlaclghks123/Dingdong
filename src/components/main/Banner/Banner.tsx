@@ -1,19 +1,32 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import useDrag from '../../../hooks/useDrag';
-import useGetShopList from '../../../hooks/useGetShopList';
+// import useGetShopList from '../../../hooks/useGetShopList';
 import DragCarousel from '../../common/DragCarousel/DragCarousel';
 import { itemWidthObj } from '../../../constants/itemConstatns';
 
 import { DragItemWrapper, Img, TitleBox } from './Banner.style';
-import { CreateShopListDataResponse } from '../../../mocks/data/dingdongWorld';
+import { CreateShopListDataResponse, createStoresDataResponse } from '../../../mocks/data/dingdongWorld';
 
 const Banner = () => {
   const navigate = useNavigate();
-  const { data, isLoading } = useGetShopList();
+  // const { data, isLoading } = useGetShopList();
+
+  const [data, setData] = useState<CreateShopListDataResponse[]>();
+  const [isLoading, setLoading] = useState(true);
+
+  const useGetShopList = () => {
+    setData(createStoresDataResponse());
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    useGetShopList();
+  }, []);
 
   const { carouselItemsRef, isDragging, isMobile, startPosition, endPosition } = useDrag({
-    items: data,
+    items: data as CreateShopListDataResponse[],
     itemWidth: itemWidthObj.banner,
     isLoading,
     autoPlay: true,
@@ -23,7 +36,7 @@ const Banner = () => {
   const slideIndicator = data ? `${Math.floor(-endPosition / itemWidthObj.banner) + 1} / ${data.length}` : '0';
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (startPosition === e.clientX) navigate(`/brands/${data[Number(e.currentTarget.dataset.id)].info.title}`);
+    if (startPosition === e.clientX && data) navigate(`/brands/${data[Number(e.currentTarget.dataset.id)].info.title}`);
   };
 
   return (
