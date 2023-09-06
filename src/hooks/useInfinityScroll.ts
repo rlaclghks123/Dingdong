@@ -1,13 +1,13 @@
 import { useState, useEffect, RefObject } from 'react';
 
-const UseInfinityScroll = (targetRef: RefObject<HTMLDivElement | null>, callback: any) => {
+const useInfinityScroll = (targetRef: RefObject<HTMLDivElement | null>, callback: any) => {
   const [loading, setLoading] = useState(true);
 
   const getNextData = () => {
     setTimeout(() => {
       setLoading(true);
       callback();
-    }, 1500);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const UseInfinityScroll = (targetRef: RefObject<HTMLDivElement | null>, callback
         if (entries[0].isIntersecting) getNextData();
       },
 
-      { threshold: 1 }
+      { threshold: 0.5 }
     );
     if (targetRef.current) observer.observe(targetRef.current);
 
@@ -26,4 +26,4 @@ const UseInfinityScroll = (targetRef: RefObject<HTMLDivElement | null>, callback
   }, [loading]);
   return { loading, setLoading };
 };
-export default UseInfinityScroll;
+export default useInfinityScroll;
