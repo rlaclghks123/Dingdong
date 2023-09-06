@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 const ShopDetailPage = () => {
   const { shopName } = useParams();
   const navigate = useNavigate();
-  const { data, isLoading, isError } = useGetShopList();
+  const { data, isLoading } = useGetShopList();
 
   useEffect(() => {
     if (data) {

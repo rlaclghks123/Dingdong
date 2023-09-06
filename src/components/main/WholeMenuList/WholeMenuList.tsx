@@ -27,7 +27,7 @@ const MunuListSize = {
 };
 
 const WholeMenuList = () => {
-  const { data, isLoading, isError } = useGetShopList();
+  const { data } = useGetShopList();
 
   return (
     <section css={Section}>

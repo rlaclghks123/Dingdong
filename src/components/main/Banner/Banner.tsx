@@ -10,7 +10,7 @@ import { CreateShopListDataResponse } from '../../../mocks/data/dingdongWorld';
 
 const Banner = () => {
   const navigate = useNavigate();
-  const { data, isLoading, isError } = useGetShopList();
+  const { data, isLoading } = useGetShopList();
 
   const { carouselItemsRef, isDragging, isMobile, startPosition, endPosition } = useDrag({
     items: data,

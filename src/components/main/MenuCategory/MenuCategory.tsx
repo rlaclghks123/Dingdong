@@ -5,7 +5,7 @@ import useGetFoodCategories from '../../../hooks/useGetFoodCategories';
 import { CreateFoodCategoriesDataResponse } from '../../../mocks/data/dingdongWorld';
 
 const MenuCategory = () => {
-  const { data, isLoading, isError } = useGetFoodCategories();
+  const { data, isLoading } = useGetFoodCategories();
 
   return (
     <section css={Wrapper}>

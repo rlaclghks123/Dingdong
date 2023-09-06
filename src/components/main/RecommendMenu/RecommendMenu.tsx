@@ -10,7 +10,7 @@ import { CreateShopListDataResponse } from '../../../mocks/data/dingdongWorld';
 
 const RecommendMenu = () => {
   const navigate = useNavigate();
-  const { data, isLoading, isError } = useGetShopList();
+  const { data, isLoading } = useGetShopList();
 
   const { carouselItemsRef, isMobile, isDragging, startPosition } = useDrag({
     items: data,

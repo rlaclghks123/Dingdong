@@ -14,7 +14,7 @@ const MunuListSize = {
 };
 
 const PopularMenuList = () => {
-  const { data, isLoading, isError } = useGetShopList();
+  const { data } = useGetShopList();
   return (
     <section>
       <div css={Header}>{`인기 상품`}</div>
