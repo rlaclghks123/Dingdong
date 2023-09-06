@@ -4,10 +4,12 @@
 
 - [DingDong](#dingdong)
 - [목차](#목차)
+- [배포사이트](#배포사이트)
 - [기술스택](#기술스택)
 - [배운점](#배운점)
   - [검색어 자동완성 기능 구현](#검색어-자동완성-기능-구현)
   - [DragCarousel 기능 구현](#dragcarousel-기능-구현)
+  - [무한 스크롤 기능 구현](#무한-스크롤-기능-구현)
   - [MSW를 활용한 API 모킹](#msw를-활용한-api-모킹)
   - [페이지 간 이동 시 스크롤 위치 유지 문제 해결](#페이지-간-이동-시-스크롤-위치-유지-문제-해결)
   - [Suspense를 활용하여 로딩 상태를 친화적으로 관리](#suspense를-활용하여-로딩-상태를-친화적으로-관리)
@@ -16,6 +18,10 @@
 - [고민해보기](#고민해보기)
   - [비슷한 구조를 가진 컴포넌트 재활용](#비슷한-구조를-가진-컴포넌트-재활용)
   - [같은 구조이지만 UI가 다른 컴포넌트 재활용](#같은-구조이지만-ui가-다른-컴포넌트-재활용)
+
+# 배포사이트
+
+- [배포사이트 &larr;](https://dingdong-9z7a.vercel.app/)
 
 # 기술스택
 
@@ -33,6 +39,11 @@
 - DragCarousel 영상 미리보기
 - [블로그 정리 &larr;](https://velog.io/@rlaclghks123/%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84-Drag-Carousel)
 - ![화면-기록-2023-09-05-오후-1 30 11](https://github.com/rlaclghks123/Learn_About_CSS/assets/55423198/44a5b7e1-dd6b-4999-af54-e763328bdf98)
+
+### 무한 스크롤 기능 구현
+
+- 무한스크롤 영상 미리보기 ![무한스크롤720](https://github.com/rlaclghks123/Learn_About_CSS/assets/55423198/7660d42d-62b2-4896-b48d-779a40e91dcc)
+- Intersection Observer를 사용하여 무한스크롤 로직 구현
 
 ### MSW를 활용한 API 모킹
 
