@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Wrapper, Li, Icon, Content, Ul, LinkStyle } from './Nav.styles';
-import searchIcon from '../../assets/navIcon/search-4-svgrepo-com.svg';
-import heartIcon from '../../assets/navIcon/heart-svgrepo-com.svg';
-import noteIcon from '../../assets/navIcon/note-1-svgrepo-com.svg';
-import smileIcon from '../../assets/navIcon/smile-wink-emoji-emoticon-svgrepo-com.svg';
-import homeIcon from '../../assets/navIcon/home-svgrepo-com.svg';
+import searchIcon from '../../../public/assets/navIcon/search-4-svgrepo-com.svg';
+import heartIcon from '../../../public/assets/navIcon/heart-svgrepo-com.svg';
+import noteIcon from '../../../public/assets/navIcon/note-1-svgrepo-com.svg';
+import smileIcon from '../../../public/assets/navIcon/smile-wink-emoji-emoticon-svgrepo-com.svg';
+import homeIcon from '../../../public/assets/navIcon/home-svgrepo-com.svg';
 
 const navData = [
   {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Wrapper, Box, Span, H1, Icon, Button, LeftBoxWithBtnStyle } from './MainHeader.styles';
-import logo from '../../../assets/headerIcon/dingdong-logo.svg';
-import backIcon from '../../../assets/headerIcon/back-svgrepo-com.svg';
+import logo from '../../../../public/assets/headerIcon/dingdong-logo.svg';
+import backIcon from '../../../../public/assets/headerIcon/back-svgrepo-com.svg';
 
 interface IconInfo {
   link: string;

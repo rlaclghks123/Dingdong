@@ -1,12 +1,13 @@
+import { ReactNode } from 'react';
 import MainHeader from '../../components/header/MainHeader/MainHeader';
 import Nav from '../../components/nav/Nav';
 import SearchBar from '../../components/main/SearchBar/SearchBar';
 import CategoryList from '../../components/main/CategoryList/CategoryList';
 import CurrentOrder from '../../components/main/CurrentOrder/CurrentOrder';
 import Layout from '../../layouts/Layout';
-import { ReactNode } from 'react';
-import bellIcon from '../../assets/headerIcon/bell-svgrepo-com.svg';
-import cartIcon from '../../assets/headerIcon/cart-large-minimalistic-svgrepo-com.svg';
+
+import bellIcon from '../../../public/assets/headerIcon/bell-svgrepo-com.svg';
+import cartIcon from '../../../public/assets/headerIcon/cart-large-minimalistic-svgrepo-com.svg';
 
 export interface Item {
   title: string;
