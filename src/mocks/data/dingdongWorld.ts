@@ -48,8 +48,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전갈마점',
-      image:
-        'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQyfHwlRUMlOUQlOEMlRUMlOEIlOUR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      image: './src/assets/images/doughnut.jpg',
       deliveryTime: '26~36',
       deliveryFee: 3500,
       rate: 0.0,
@@ -68,8 +67,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전서구점',
-      image:
-        'https://images.unsplash.com/photo-1559054663-e8d23213f55c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fCVFQyU5RCU4QyVFQyU4QiU5RHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+      image: './src/assets/images/toast.jpg',
       deliveryTime: '20~41',
       deliveryFee: 2000,
       rate: 3.0,
@@ -88,8 +86,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전중구점',
-      image:
-        'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUVDJTlEJThDJUVDJThCJTlEfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60',
+      image: './src/assets/images/panCake.jpg',
       deliveryTime: '27~47',
       deliveryFee: 2000,
       rate: 5.0,
@@ -108,8 +105,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전동구점',
-      image:
-        'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fCVFQyU5RCU4QyVFQyU4QiU5RHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+      image: './src/assets/images/iceCream.jpg',
       deliveryTime: '24~58',
       deliveryFee: 3500,
       rate: 4.0,
@@ -128,8 +124,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전유성점',
-      image:
-        'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8JUVDJTlEJThDJUVDJThCJTlEfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60',
+      image: './src/assets/images/pizza.jpg',
       deliveryTime: '24~36',
       deliveryFee: 2000,
       rate: 0.0,
@@ -148,8 +143,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전대덕점',
-      image:
-        'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUVDJTlEJThDJUVDJThCJTlEfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60',
+      image: './src/assets/images/panCake.jpg',
       deliveryTime: '21~41',
       deliveryFee: 3500,
       rate: 4.0,
@@ -168,8 +162,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전둔산점',
-      image:
-        'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUVDJTlEJThDJUVDJThCJTlEfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60',
+      image: './src/assets/images/panCake.jpg',
       deliveryTime: '26~41',
       deliveryFee: 3000,
       rate: 3.0,
@@ -188,8 +181,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전판암점',
-      image:
-        'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUVDJTlEJThDJUVDJThCJTlEfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60',
+      image: './src/assets/images/panCake.jpg',
       deliveryTime: '20~30',
       deliveryFee: 3000,
       rate: 4.0,
@@ -208,8 +200,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전오룡점',
-      image:
-        'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUVDJTlEJThDJUVDJThCJTlEfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60',
+      image: './src/assets/images/panCake.jpg',
       deliveryTime: '24~34',
       deliveryFee: 4000,
       rate: 0.0,
@@ -228,8 +219,7 @@ export const createStoresDataResponse = (): CreateShopListDataResponse[] => [
     info: {
       name: 'bbq',
       title: 'BBQ 대전대흥점',
-      image:
-        'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8JUVDJTlEJThDJUVDJThCJTlEfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60',
+      image: './src/assets/images/panCake.jpg',
       deliveryTime: '23~54',
       deliveryFee: 3500,
       rate: 5.0,
